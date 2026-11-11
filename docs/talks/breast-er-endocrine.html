@@ -252,6 +252,83 @@ body.blankprint .verdict, body.blankprint .tag, body.blankprint #ink { display: 
 body.blankprint .opt.trial.dim { opacity: 1; }
 body.blankprint .fill.num { width: 4em; }
 @media print { .fill::placeholder { color: transparent; } }
+/* ---------- Polish layer (oncologychalktalk52) ---------- */
+/* "The short version": three or four plain sentences under the title, the whole talk at a glance. */
+.keys { border: 1.5px solid var(--rule); border-left: 6px solid var(--blue); border-radius: 12px; background: var(--paper); padding: 14px 18px; display: grid; gap: 8px; }
+.keys .eyebrow { color: var(--blue); }
+.keys ul { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 6px; }
+.keys li { display: grid; grid-template-columns: 22px 1fr; gap: 6px; font-size: 1.02rem; max-width: 70ch; }
+.keys li::before { content: "\2713"; font-family: var(--font-hand); font-weight: 700; color: var(--green); }
+header.top { padding-bottom: 6px; }
+header.top h1 { letter-spacing: .005em; }
+.sh h2 { flex: 1; border-bottom: 1.5px dashed var(--rule); padding-bottom: 4px; }
+.panel, .opt, .tablewrap, .keys { box-shadow: 0 1px 0 rgba(0,0,0,.25), 0 6px 18px -12px rgba(0,0,0,.6); }
+.opt { transition: border-color .15s, box-shadow .15s; }
+.opt:not(.trial):hover { border-color: var(--muted); }
+.chip { transition: border-color .15s; }
+.chip:hover { border-color: var(--muted); }
+.note { line-height: 1.5; }
+footer ol { font-size: 12.5px; }
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  .board { gap: 32px; }
+  .panel, .opt { padding: 14px; }
+  .bar { font-size: 14px; gap: 6px 10px; }
+}
+
+/* Handout: compact, so the take-home copy is a few pages rather than many */
+@page { size: letter; margin: 0.45in 0.5in; }
+@media print {
+  body { font-size: 10pt; line-height: 1.4; }
+  h1 { font-size: 19pt; }
+  h2 { font-size: 14pt; }
+  h3 { font-size: 11.5pt; }
+  .lede { font-size: 10.5pt; }
+  .note, .opt .how, .chip small { font-size: 9pt; }
+  .board > * + * { margin-top: 14px; }
+  section.step > * + * { margin-top: 8px; }
+  .panel, .opt, .keys { padding: 9px 12px; border-radius: 8px; box-shadow: none; }
+  .tablewrap { box-shadow: none; border-radius: 8px; }
+  .opts, .opts.three { gap: 8px; }
+  .opt { gap: 4px; }
+  .opt ul { font-size: 9.5pt; gap: 2px; }
+  .two { gap: 14px; }
+  .n { width: 24px; height: 24px; font-size: 11pt; transform: translateY(2px); }
+  .sh { gap: 8px; }
+  .sh h2 { border-bottom-width: 1px; }
+  .facts { gap: 4px; }
+  .fact > span:first-child { font-size: 9.5pt; }
+  .diagram svg { max-height: 2.4in; }
+  #people { max-width: 2.3in; }
+  .arraywrap { grid-template-columns: minmax(0, 2.3in) minmax(0, 1fr); gap: 14px; }
+  .lg b { font-size: 16pt; }
+  .say { font-size: 11.5pt; padding-top: 6px; }
+  .compare { gap: 4px; }
+  .track { height: 10px; }
+  th, td { padding: 5px 8px; }
+  table { font-size: 9.5pt; }
+  thead th { font-size: 10pt; }
+  .checks { gap: 3px 14px; }
+  .checks input { width: 14px; height: 14px; margin-top: 2px; }
+  .checks label { grid-template-columns: 18px 1fr; }
+  textarea.lines { line-height: 24px; background-image: linear-gradient(transparent 23px, var(--rule) 24px); background-size: 100% 24px; min-height: 48px; font-size: 11pt; }
+  .plan, .panel.plan > * + * { gap: 8px; margin-top: 8px; }
+  .call { padding: 8px 12px; gap: 4px; }
+  .call ul { gap: 0; }
+  .keys li { font-size: 10.5pt; }
+  .keys ul { gap: 3px; }
+  footer { font-size: 8pt; padding-top: 8px; gap: 4px; }
+  footer ol { font-size: 7.5pt; column-count: 2; column-gap: 18px; display: block; }
+  footer ol li { break-inside: avoid; }
+  .chip { padding: 3px 10px; }
+  .tabs { display: none; }
+  .who { font-size: 10pt; }
+}
+@media print {
+  .panel.diffs, .panel.facts { break-inside: auto; }
+  .diff, .fact, .reading li { break-inside: avoid; }
+  .also, .next, .later2 { gap: 8px; }
+}
 </style>
 <script type="application/json" id="edits">{"text":{},"settings":{}}</script>
 
@@ -292,6 +369,15 @@ body.blankprint .fill.num { width: 4em; }
       <label>For <input class="fill wide" id="ptName" placeholder="name" autocomplete="off"></label>
       <label>Date <input class="fill wide" id="visitDate" style="width:8em" autocomplete="off"></label>
       <label>With <input class="fill wide" id="drName" placeholder="Dr." autocomplete="off"></label>
+    </div>
+    <div class="keys">
+      <div class="eyebrow">The short version</div>
+      <ul>
+        <li>Your cancer is fed by estrogen, so a daily hormone pill for 5 years or more is your main treatment.</li>
+        <li>After menopause, an aromatase inhibitor works a little better than tamoxifen. Their side effects differ.</li>
+        <li>Some higher-risk cancers benefit from adding a second pill (ribociclib or abemaciclib).</li>
+        <li>Side effects can usually be managed. Tell us before you stop a pill.</li>
+      </ul>
     </div>
   </header>
 
@@ -348,7 +434,7 @@ body.blankprint .fill.num { width: 4em; }
         <p class="lede">Estrogen is <span class="hand">fuel</span> for this cancer. After menopause, the ovaries stop, and most estrogen is made in body fat by an enzyme called aromatase.</p>
         <p class="lede"><strong>Aromatase inhibitors</strong> (anastrozole, letrozole, exemestane) shut down that factory, so there is less fuel.</p>
         <p class="lede"><strong>Tamoxifen</strong> lets estrogen be made but blocks it from plugging into the cancer cell.</p>
-        <p class="note">Either way, any hidden cancer cells are starved of the signal they need to grow.</p>
+        <p class="note">Either way, hidden cancer cells are starved of their growth signal.</p>
       </div>
     </div>
   </section>
@@ -358,7 +444,7 @@ body.blankprint .fill.num { width: 4em; }
     <div class="sh"><span class="n">3</span><h2>Your choices</h2></div>
     <p class="note noprint">Tap a choice to see it in the picture below and in the side-effect table.</p>
     <div class="opts three" id="opts"></div>
-    <p class="note">How long: usually 5 years. For higher-risk cancers we sometimes continue to 7–10 years. Starting with tamoxifen for 2–3 years and then switching to an aromatase inhibitor works about as well as an aromatase inhibitor alone.</p>
+    <p class="note">Usually 5 years; sometimes 7–10 years for higher-risk cancers. Tamoxifen for 2–3 years, then an aromatase inhibitor, works about as well as an aromatase inhibitor alone.</p>
   </section>
 
   <!-- 4 -->
@@ -370,9 +456,9 @@ body.blankprint .fill.num { width: 4em; }
     <div class="panel arraywrap">
       <svg id="people" viewBox="0 0 340 340" role="img" aria-labelledby="peopleDesc"><desc id="peopleDesc"></desc></svg>
       <div class="legend" style="min-width:0">
-        <div class="lg free"><b id="nFree">0</b><span>free of cancer with surgery alone. They did not need the pill, but we can't know who they are.</span></div>
-        <div class="lg ben"><b id="nBen">0</b><span><strong>free of cancer because of the pill.</strong> These are the women it helps.</span></div>
-        <div class="lg rec"><b id="nRec">0</b><span>have the cancer come back even with this treatment.</span></div>
+        <div class="lg free"><b id="nFree">0</b><span>cured by surgery alone. We can't tell in advance who they are.</span></div>
+        <div class="lg ben"><b id="nBen">0</b><span><strong>free of cancer because of the pill.</strong></span></div>
+        <div class="lg rec"><b id="nRec">0</b><span>have the cancer come back even with treatment.</span></div>
         <p class="say" id="say"></p>
       </div>
     </div>
@@ -394,15 +480,15 @@ body.blankprint .fill.num { width: 4em; }
   <section class="step" data-step="5" id="s5">
     <div class="sh"><span class="n">5</span><h2>Schedule and side effects</h2></div>
     <div class="tablewrap"><table id="fx" class="narrow"></table></div>
-    <p class="note">Numbers are rough, over 5 years, from the large trials comparing these pills (ATAC, BIG 1-98); joint aches are compared with placebo (IBIS-II). “Added risk” means on top of the usual risk for someone your age. Most side effects ease after the first few months. If one pill doesn't suit you, switching to another aromatase inhibitor or to tamoxifen often helps, so tell us rather than stopping. The pill only works if it is taken.</p>
+    <p class="note">Rough numbers over 5 years, from trials comparing these pills (ATAC, BIG 1-98); joint aches compared with placebo (IBIS-II). “Added” means on top of the usual risk at your age. Most side effects ease after a few months, and switching pills often helps, so tell us rather than stopping.</p>
   </section>
 
   <!-- 6 -->
   <section class="step" data-step="6" id="s6">
     <div class="sh"><span class="n">6</span><h2>For higher-risk cancers: newer options</h2></div>
     <div class="panel" style="display:grid;gap:10px">
-      <p class="lede">CDK4/6 inhibitors are pills that put the brakes on cell division. Added to a hormone pill, they lower the chance of recurrence <strong>for cancers with a higher risk</strong>, mostly when lymph nodes are involved.</p>
-      <p class="lede"><strong>Giredestrant</strong> is a newer kind of hormone pill. Instead of only blocking the estrogen receptor, it breaks the receptor down. In a large study it worked better than the usual hormone pill for medium- and high-risk cancers. <mark>It is not yet approved by the FDA</mark>; a decision is expected by November 30, 2026.</p>
+      <p class="lede"><strong>CDK4/6 inhibitors</strong> put the brakes on cell division. Added to a hormone pill, they lower the chance of recurrence <strong>for higher-risk cancers</strong>, mostly when lymph nodes are involved.</p>
+      <p class="lede"><strong>Giredestrant</strong> is a newer hormone pill that breaks down the estrogen receptor. In a large study it worked better than the usual pill for medium- and high-risk cancers. <mark>Not yet FDA approved</mark> (decision expected by November 30, 2026).</p>
       <p class="lede verdict" id="verdict"></p>
     </div>
     <div class="opts three" id="cdk">
@@ -411,9 +497,9 @@ body.blankprint .fill.num { width: 4em; }
         <h3>Ribociclib (Kisqali), 3 years</h3>
         <div class="how">NATALEE trial. Taken with an aromatase inhibitor; 3 weeks on, 1 week off.</div>
         <ul>
-          <li class="fit"><span>Who was in it: stage II–III. Any lymph node with cancer, or no nodes but a tumor over 5 cm, or 2–5 cm and grade 3, or grade 2 with Ki-67 20% or more or a high gene score.</span></li>
-          <li class="pro"><span>At 5 years, 85.5 of 100 were cancer-free versus 81.0 with the hormone pill alone: <strong>about 4 to 5 more per 100</strong>.</span></li>
-          <li class="con"><span>Low white blood counts, liver test changes, heart rhythm check (ECG), tiredness. Blood tests every month at first.</span></li>
+          <li class="fit"><span>Studied in: stage II–III. Any lymph node with cancer, or no nodes but a tumor over 5 cm, or 2–5 cm and grade 3, or grade 2 with Ki-67 20%+ or a high gene score.</span></li>
+          <li class="pro"><span>At 5 years, 85.5 of 100 cancer-free versus 81.0 with the hormone pill alone: <strong>about 4 to 5 more per 100</strong>.</span></li>
+          <li class="con"><span>Low white counts, liver test changes, heart rhythm checks (ECG), tiredness. Monthly blood tests at first.</span></li>
         </ul>
         <div class="mini" aria-hidden="true"><span style="--w:81%"></span><span class="add" style="--w:4.5%"></span></div>
       </div>
@@ -422,9 +508,9 @@ body.blankprint .fill.num { width: 4em; }
         <h3>Abemaciclib (Verzenio), 2 years</h3>
         <div class="how">monarchE trial. Taken twice a day with any hormone pill.</div>
         <ul>
-          <li class="fit"><span>Who was in it: 4 or more lymph nodes with cancer, or 1–3 nodes plus a tumor 5 cm or larger or grade 3.</span></li>
-          <li class="pro"><span>At 7 years, 77.4 of 100 were cancer-free versus 70.9: <strong>about 6 to 7 more per 100</strong>. Also about 2 more per 100 alive (86.8 versus 85.0).</span></li>
-          <li class="con"><span>Diarrhea in most people, usually early and manageable. Low blood counts, tiredness, blood clots in about 2–3 in 100.</span></li>
+          <li class="fit"><span>Studied in: 4 or more lymph nodes with cancer, or 1–3 nodes plus a tumor 5 cm or larger or grade 3.</span></li>
+          <li class="pro"><span>At 7 years, 77.4 of 100 cancer-free versus 70.9: <strong>about 6 to 7 more per 100</strong>. About 2 more per 100 alive (86.8 versus 85.0).</span></li>
+          <li class="con"><span>Diarrhea in most people, usually early and manageable. Low blood counts, tiredness; blood clots in about 2–3 in 100.</span></li>
         </ul>
         <div class="mini" aria-hidden="true"><span style="--w:70.9%"></span><span class="add" style="--w:6.5%"></span></div>
       </div>
@@ -433,15 +519,15 @@ body.blankprint .fill.num { width: 4em; }
         <h3>Giredestrant, 5 years <small class="note">not yet FDA approved</small></h3>
         <div class="how">lidERA trial. One pill a day <strong>instead of</strong> the usual hormone pill, not on top of it.</div>
         <ul>
-          <li class="fit"><span>Who was in it: stage I–III. Any lymph node with cancer, or no nodes but a tumor over 1 cm that is grade 3, has Ki-67 of 20% or more, or has a high gene score.</span></li>
-          <li class="pro"><span>For women past menopause, at 3 years 91.3 of 100 were cancer-free versus 88.3 with the usual hormone pill: <strong>about 3 more per 100</strong>. Too early to know about living longer.</span></li>
-          <li class="pro"><span>Joint aches and hot flashes about as common as with the usual pill. Fewer people stopped because of side effects: about 5 in 100 versus 8 in 100.</span></li>
-          <li class="con"><span>A slower heart rate in about 1 in 10, usually mild and without symptoms. Longer-term effects on bones and the uterus have not been reported yet.</span></li>
+          <li class="fit"><span>Studied in: stage I–III. Any lymph node with cancer, or no nodes but a tumor over 1 cm that is grade 3, has Ki-67 20%+ or a high gene score.</span></li>
+          <li class="pro"><span>Past menopause, at 3 years 91.3 of 100 cancer-free versus 88.3 with the usual pill: <strong>about 3 more per 100</strong>. Too early to know about living longer.</span></li>
+          <li class="pro"><span>Joint aches and hot flashes about as common as the usual pill; fewer stopped for side effects (about 5 versus 8 in 100).</span></li>
+          <li class="con"><span>Slower heart rate in about 1 in 10, usually mild. Long-term effects on bones and uterus not yet reported.</span></li>
         </ul>
         <div class="mini" aria-hidden="true"><span style="--w:88.3%"></span><span class="add" style="--w:3%"></span></div>
       </div>
     </div>
-    <p class="note">The benefits above are for the higher-risk women in those trials. When the risk of recurrence is lower, the benefit is smaller, while the side effects stay the same. The three studies followed women for different lengths of time (3, 5 and 7 years) and were never compared with each other. Giredestrant was not studied together with ribociclib or abemaciclib.</p>
+    <p class="note">These benefits are for the higher-risk women in each trial; with lower risk the benefit is smaller but side effects are the same. The trials followed women for different times (3, 5, 7 years), were never compared with each other, and giredestrant was not tested together with ribociclib or abemaciclib.</p>
     <div class="dr noprint">
       <div class="eyebrow">For your doctor · lidERA</div>
       <div class="note">Giredestrant 30 mg daily × 5 years vs investigator's-choice endocrine therapy (84% AI, 16% tamoxifen), n = 4,170, stage I–III, about 59% postmenopausal; OFS required for premenopausal women and men. ITT iDFS HR 0.70 (95% CI 0.57–0.87), 3-year iDFS 92.4% vs 89.6%; DRFI HR 0.69. Postmenopausal subgroup (shown on the card) HR 0.74 (0.57–0.96), 3-year iDFS 91.3% vs 88.3%. OS immature, HR 0.79 (0.56–1.12). Median follow-up 32 months. Bradycardia mostly grade 1, no grade 3–4; discontinuation for AEs 5.3% vs 8.2%. No placebo arm: side effects are compared with standard endocrine therapy. Eligibility tag uses Oncotype 26 or higher as the "high gene score"; the trial did not publish a single cutoff. Primary results presented at SABCS 2025 (GS1-10); no full journal paper yet. FDA priority review, PDUFA date November 30, 2026.</div>
@@ -505,7 +591,7 @@ Plan for: 5 years</textarea></label>
   </section>
 
   <footer>
-    <p>Numbers are estimates for women past menopause with ER-positive, HER2-negative early breast cancer, drawn from large trials and adjusted by your doctor for your situation. They describe groups of people and cannot predict exactly what will happen to you. This sheet goes with your conversation with your care team and does not replace it.</p>
+    <p>Estimates for women past menopause with ER-positive, HER2-negative early breast cancer, from large trials and adjusted by your doctor. They describe groups of people, not exactly what will happen to you, and go with the conversation with your care team.</p>
     <ol>
       <li>EBCTCG. Relevance of breast cancer hormone receptors and other factors to the efficacy of adjuvant tamoxifen. Lancet 2011;378:771.</li>
       <li>EBCTCG. Aromatase inhibitors versus tamoxifen in early breast cancer. Lancet 2015;386:1341.</li>
@@ -541,16 +627,16 @@ Plan for: 5 years</textarea></label>
       how: 'Mammograms and checkups only',
       pros: ['No pill side effects'],
       cons: ['Highest chance the cancer comes back'],
-      fit: 'Women with very small, very low-risk tumors, or who decide the benefit is not worth it to them' },
+      fit: 'Very small, very low-risk tumors, or when the benefit isn’t worth it to you' },
     { id: 'tam', short: 'Tamoxifen', name: 'Tamoxifen, 5 years',
       how: 'One pill a day. Blocks estrogen at the cancer cell',
       pros: ['No added joint aches', 'Helps keep bones strong'],
-      cons: ['A bit less effective than aromatase inhibitors after menopause', 'Small risk of blood clots and uterine cancer', 'Hot flashes'],
-      fit: 'Women with bone thinning, or who can’t tolerate an aromatase inhibitor' },
+      cons: ['A bit less effective than an aromatase inhibitor after menopause', 'Small risk of blood clots and uterine cancer', 'Hot flashes'],
+      fit: 'Bone thinning, or an aromatase inhibitor didn’t suit you' },
     { id: 'ai', short: 'Aromatase inhibitor', name: 'Aromatase inhibitor, 5 years',
       how: 'Anastrozole, letrozole or exemestane. One pill a day. Lowers estrogen in the body',
       pros: ['Most effective after menopause', 'No added risk of blood clots or uterine cancer'],
-      cons: ['Joint and muscle aches', 'Bone thinning: needs bone scans, calcium and vitamin D', 'Vaginal dryness'],
+      cons: ['Joint and muscle aches', 'Bone thinning: bone scans, calcium, vitamin D', 'Vaginal dryness'],
       fit: 'The usual first choice after menopause' },
   ];
 

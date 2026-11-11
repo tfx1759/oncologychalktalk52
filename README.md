@@ -1,4 +1,9 @@
-# Oncology Chalk Talks
+# Oncology Chalk Talks · patient edition
+
+A more concise, more polished edition of [oncology-chalk-talks](https://github.com/tfx1759/oncology-chalk-talks).
+Same clinical content and sources; each talk now opens with "The short version" (four plain-language
+points), wording is tighter throughout, and the printed handout is compact (about a third fewer pages).
+The original repository is left unchanged.
 
 Interactive "chalk talk" pages for explaining treatment options in clinic, each of which prints as a
 blank or filled-in patient handout. Published with GitHub Pages from the `docs/` folder.

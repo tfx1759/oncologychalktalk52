@@ -6,13 +6,22 @@
       <label>Date <input class="fill wide" id="visitDate" style="width:8em" autocomplete="off"></label>
       <label>With <input class="fill wide" id="drName" placeholder="Dr." autocomplete="off"></label>
     </div>
+    <div class="keys">
+      <div class="eyebrow">The short version</div>
+      <ul>
+        <li>The cancer has spread but still responds to lowering testosterone. It can usually be controlled for years.</li>
+        <li>Everyone gets testosterone-lowering treatment (ADT). Adding a second medicine helps men live longer.</li>
+        <li>The added medicine is a hormone pill, and for some men with more cancer, chemo as well.</li>
+        <li>Genetic testing is advised for every man, and some men benefit from radiation to the prostate.</li>
+      </ul>
+    </div>
   </header>
 
   <!-- 1 -->
   <section class="step" data-step="1" id="s1">
     <div class="sh"><span class="n">1</span><h2>What we found</h2></div>
-    <p class="lede">The cancer has spread beyond the prostate, most often to the bones or lymph nodes. It still responds to lowering <mark>testosterone</mark>, the hormone that fuels it, so doctors call it <strong>hormone-sensitive</strong>.</p>
-    <p class="lede">Treatment usually can't cure it, but it can keep it under control for years. The goal is to help you <span class="hand">live longer and feel well</span>.</p>
+    <p class="lede">The cancer has spread beyond the prostate, most often to bones or lymph nodes. It still responds to lowering <mark>testosterone</mark>, its fuel, so it is called <strong>hormone-sensitive</strong>.</p>
+    <p class="lede">Treatment usually can't cure it, but can control it for years. The goal is to help you <span class="hand">live longer and feel well</span>.</p>
     <div class="panel facts">
       <div class="eyebrow">Your cancer</div>
       <div class="factgrid">
@@ -29,7 +38,7 @@
         <span class="tag no" id="volTag" data-live>Fill in the scans to check</span>
         <span class="blank-only">High volume &nbsp;/&nbsp; Low volume</span>
       </div>
-      <p class="note">High volume means spread to organs such as the liver or lungs, or 4 or more bone spots with at least 1 outside the spine and pelvis. Everything else is low volume. This is how the studies sorted men, using CT and bone scans.</p>
+      <p class="note">High volume: spread to organs such as liver or lungs, or 4 or more bone spots with at least 1 outside the spine and pelvis, on CT and bone scans. Everything else is low volume.</p>
     </div>
   </section>
 
@@ -69,9 +78,9 @@
         </svg>
       </div>
       <div style="display:grid;gap:10px;min-width:0">
-        <p class="lede"><strong>ADT</strong> (androgen deprivation therapy) turns off testosterone from the testicles. It is a shot every 1 to 6 months, or a daily pill. Everyone gets it, and it continues long term.</p>
-        <p class="lede"><strong>Abiraterone</strong> (Zytiga) blocks the testosterone still made by the adrenal glands and the cancer itself. It is taken with <strong>prednisone</strong>, a steroid.</p>
-        <p class="lede"><strong>Enzalutamide</strong> (Xtandi), <strong>apalutamide</strong> (Erleada) and <strong>darolutamide</strong> (Nubeqa) block the receptor, the lock testosterone uses to switch the cancer on.</p>
+        <p class="lede"><strong>ADT</strong> (androgen deprivation therapy) turns off testosterone from the testicles: a shot every 1 to 6 months, or a daily pill. Everyone gets it, long term.</p>
+        <p class="lede"><strong>Abiraterone</strong> (Zytiga) blocks testosterone made by the adrenal glands and the cancer. Taken with <strong>prednisone</strong>, a steroid.</p>
+        <p class="lede"><strong>Enzalutamide</strong> (Xtandi), <strong>apalutamide</strong> (Erleada) and <strong>darolutamide</strong> (Nubeqa) block the lock (receptor) testosterone uses to switch the cancer on.</p>
         <p class="lede"><strong>Docetaxel</strong> is chemo, given in a vein every 3 weeks for 6 doses.</p>
         <p class="note">ADT plus one more medicine is called a <span class="hand">doublet</span>. ADT plus chemo plus a pill is a <span class="hand">triplet</span>.</p>
       </div>
@@ -95,8 +104,8 @@
     <div class="panel arraywrap">
       <svg id="people" viewBox="0 0 340 340" role="img" aria-labelledby="peopleDesc"><desc id="peopleDesc"></desc></svg>
       <div class="legend" style="min-width:0">
-        <div class="lg free"><b id="nFree">0</b><span>alive at 5 years with ADT alone. They would have been alive either way.</span></div>
-        <div class="lg ben"><b id="nBen">0</b><span><strong>alive at 5 years because of the added treatment.</strong> These are the men it helps.</span></div>
+        <div class="lg free"><b id="nFree">0</b><span>alive at 5 years with ADT alone.</span></div>
+        <div class="lg ben"><b id="nBen">0</b><span><strong>alive at 5 years because of the added treatment.</strong></span></div>
         <div class="lg rec"><b id="nRec">0</b><span>died within 5 years, even with this treatment.</span></div>
         <p class="say" id="say"></p>
       </div>
@@ -107,10 +116,10 @@
     <div class="panel">
       <div class="eyebrow" style="margin-bottom:6px">Reading this picture</div>
       <ul class="reading">
-        <li>No study compared all six. Each pill was tested against ADT alone in its own study, so small differences between the pills may be chance.</li>
-        <li>The triplet was tested against ADT + chemo. Its number here comes from a 2026 analysis that combined the studies.</li>
-        <li>Darolutamide without chemo has the least certain number, because its survival result is not yet proven.</li>
-        <li>Cancer that came back after earlier treatment usually does better than these numbers, so your doctor may adjust the starting point.</li>
+        <li>No study compared all six. Each pill was tested against ADT alone, so small differences between pills may be chance.</li>
+        <li>The triplet was tested against ADT + chemo; its number comes from a 2026 analysis combining the studies.</li>
+        <li>Darolutamide without chemo is least certain: its survival benefit is not yet proven.</li>
+        <li>Cancer that came back after earlier treatment usually does better than these numbers.</li>
       </ul>
     </div>
     <div class="dr noprint" id="drPanel">
@@ -129,10 +138,10 @@
     <div class="sh"><span class="n">5</span><h2>Schedule and side effects</h2></div>
     <div class="panel">
       <h3>Everyone on ADT</h3>
-      <p>Hot flashes, tiredness, less interest in sex and erection problems, thinner bones, less muscle and more belly fat, and higher blood sugar and cholesterol. Exercise, including strength training, helps with many of these.</p>
+      <p>Hot flashes, tiredness, low sex drive and erection problems, thinner bones, less muscle, more belly fat, higher blood sugar and cholesterol. Exercise, including strength training, helps many of these.</p>
     </div>
     <div class="tablewrap"><table id="fx"></table></div>
-    <p class="note">Each cell is the extra effect of that medicine on top of ADT: men out of 100 with the medicine vs with a placebo, in LATITUDE (abiraterone, severe events), ARCHES (enzalutamide), TITAN (apalutamide) and ARANOTE (darolutamide). The triplet column compares ARASENS with ADT + chemo alone. Tell us early about any side effect: a dose change often helps.</p>
+    <p class="note">Each cell is the extra effect on top of ADT, men out of 100 with the medicine vs placebo: LATITUDE (abiraterone, severe events), ARCHES, TITAN, ARANOTE. The triplet column compares ARASENS with ADT + chemo. Tell us early: a dose change often helps.</p>
   </section>
 
   <!-- 6 -->
@@ -155,10 +164,10 @@
   <section class="step" data-step="7" id="s7">
     <div class="sh"><span class="n">7</span><h2>Also part of your care</h2></div>
     <div class="also">
-      <div class="panel"><h3>Genetic testing</h3><p>Guidelines advise testing every man whose prostate cancer has spread: a blood or saliva test, and a test of the tumor. It can open extra options and matters for your family.</p></div>
-      <div class="panel"><h3>Radiation to the prostate</h3><p>For low-volume cancer found at diagnosis, radiation to the prostate helped men live longer in the STAMPEDE study. Ask whether it fits you.</p></div>
-      <div class="panel"><h3>Bones and heart</h3><p>ADT thins bones and raises blood sugar and cholesterol. Calcium, vitamin D, exercise and a bone density scan help, and so do regular checkups with your primary doctor.</p></div>
-      <div class="panel"><h3>If the cancer grows later</h3><p>Other treatments remain, including chemo, radioactive PSMA treatment and clinical trials. Switching to another of these pills usually helps little.</p></div>
+      <div class="panel"><h3>Genetic testing</h3><p>Advised for every man whose prostate cancer has spread (blood or saliva, and the tumor). It can open extra options and matters for your family.</p></div>
+      <div class="panel"><h3>Radiation to the prostate</h3><p>For low-volume cancer found at diagnosis, it helped men live longer in STAMPEDE. Ask whether it fits you.</p></div>
+      <div class="panel"><h3>Bones and heart</h3><p>ADT thins bones and raises blood sugar and cholesterol. Calcium, vitamin D, exercise, a bone density scan and primary care checkups help.</p></div>
+      <div class="panel"><h3>If the cancer grows later</h3><p>Other treatments remain: chemo, radioactive PSMA treatment, clinical trials. Switching to another of these pills usually helps little.</p></div>
     </div>
   </section>
 
@@ -204,7 +213,7 @@ Next scans:</textarea></label>
   </section>
 
   <footer>
-    <p>Numbers come from large studies of men with prostate cancer that had spread and still responded to hormone therapy. They describe groups of men and cannot predict exactly what will happen to you. This sheet goes with your conversation with your care team and does not replace it.</p>
+    <p>Numbers come from large studies of hormone-sensitive prostate cancer that had spread. They describe groups of men, not exactly what will happen to you, and go with the conversation with your care team.</p>
     <ol>
       <li>Fizazi K et al. Abiraterone plus prednisone in metastatic castration-sensitive prostate cancer (LATITUDE): final overall survival. Lancet Oncol 2019;20:686. Fizazi K et al. N Engl J Med 2017;377:352.</li>
       <li>Attard G et al. Abiraterone acetate plus prednisolone with or without enzalutamide (STAMPEDE). Lancet Oncol 2023;24:443.</li>

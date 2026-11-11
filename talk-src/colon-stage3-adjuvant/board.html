@@ -6,6 +6,15 @@
       <label>Date <input class="fill wide" id="visitDate" style="width:8em" autocomplete="off"></label>
       <label>With <input class="fill wide" id="drName" placeholder="Dr." autocomplete="off"></label>
     </div>
+    <div class="keys">
+      <div class="eyebrow">The short version</div>
+      <ul>
+        <li>Surgery removed the cancer, but it had reached lymph nodes, so hidden cells may remain.</li>
+        <li>Chemo after surgery lowers the chance the cancer comes back.</li>
+        <li>For lower-risk stage III, 3 months of CAPOX gives nearly the full benefit with much less lasting numbness.</li>
+        <li>For higher-risk stage III, 6 months adds a little more benefit.</li>
+      </ul>
+    </div>
   </header>
 
   <!-- 1 -->
@@ -53,9 +62,9 @@
   <section class="step" data-step="2" id="s2">
     <div class="sh"><span class="n">2</span><h2>Why we talk about chemo</h2></div>
     <div class="panel" style="display:grid;gap:10px">
-      <p class="lede">Surgery took out all the cancer we can see. Sometimes a few cancer cells have already slipped away. They are too small to show on any scan.</p>
-      <p class="lede">Chemo after surgery is a <span class="hand">clean-up crew</span>. Its job is to kill those hidden cells before they grow into a new tumor.</p>
-      <p class="lede">We can't tell who has hidden cells and who doesn't. Some people are already cured by surgery. So we talk in <mark>chances out of 100</mark>.</p>
+      <p class="lede">Surgery took out all the cancer we can see. A few cells may already have slipped away, too small to show on any scan.</p>
+      <p class="lede">Chemo after surgery is a <span class="hand">clean-up crew</span> that kills those hidden cells before they grow.</p>
+      <p class="lede">We can't tell who has hidden cells, and some people are already cured by surgery. So we talk in <mark>chances out of 100</mark>.</p>
     </div>
   </section>
 
@@ -75,9 +84,9 @@
     <div class="panel arraywrap">
       <svg id="people" viewBox="0 0 340 340" role="img" aria-labelledby="peopleDesc"><desc id="peopleDesc"></desc></svg>
       <div class="legend" style="min-width:0">
-        <div class="lg free"><b id="nFree">0</b><span>cancer-free with surgery alone. They did not need chemo, but we can't know who they are.</span></div>
-        <div class="lg ben"><b id="nBen">0</b><span><strong>cancer-free because of chemo.</strong> These are the people chemo helps.</span></div>
-        <div class="lg rec"><b id="nRec">0</b><span>have the cancer come back even with this treatment.</span></div>
+        <div class="lg free"><b id="nFree">0</b><span>cured by surgery alone. We can't tell in advance who they are.</span></div>
+        <div class="lg ben"><b id="nBen">0</b><span><strong>cancer-free because of chemo.</strong></span></div>
+        <div class="lg rec"><b id="nRec">0</b><span>have the cancer come back even with treatment.</span></div>
         <p class="say" id="say"></p>
       </div>
     </div>
@@ -99,7 +108,7 @@
   <section class="step" data-step="5" id="s5">
     <div class="sh"><span class="n">5</span><h2>Schedule and side effects</h2></div>
     <div class="tablewrap"><table id="fx"></table></div>
-    <p class="note">Most side effects fade after chemo ends. Numbness from oxaliplatin is the one that can last, which is why the shorter course matters. Before starting a 5-FU-type drug, we may check a blood test for DPD deficiency, a rare cause of severe reactions.</p>
+    <p class="note">Most side effects fade after chemo ends. Numbness from oxaliplatin can last, which is why the shorter course matters. Before a 5-FU-type drug we may test for DPD deficiency, a rare cause of severe reactions.</p>
   </section>
 
   <!-- 6 -->
@@ -148,7 +157,7 @@ Start date: </textarea></label>
   </section>
 
   <footer>
-    <p>Numbers are estimates for people with stage III colon cancer, drawn from large trials and adjusted by your doctor for your situation. They describe groups of people and cannot predict exactly what will happen to you. This sheet goes with your conversation with your care team and does not replace it.</p>
+    <p>Estimates for people with stage III colon cancer, from large trials and adjusted by your doctor. They describe groups of people, not exactly what will happen to you, and go with the conversation with your care team.</p>
     <ol>
       <li>Moertel CG et al. 5-FU and levamisole after resection of stage III colon cancer. NEJM 1990;322:352.</li>
       <li>Twelves C et al. Capecitabine vs 5-FU/LV as adjuvant treatment (X-ACT). NEJM 2005;352:2696.</li>

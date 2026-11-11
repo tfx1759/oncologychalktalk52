@@ -252,6 +252,83 @@ body.blankprint .verdict, body.blankprint .tag, body.blankprint #ink { display: 
 body.blankprint .opt.trial.dim { opacity: 1; }
 body.blankprint .fill.num { width: 4em; }
 @media print { .fill::placeholder { color: transparent; } }
+/* ---------- Polish layer (oncologychalktalk52) ---------- */
+/* "The short version": three or four plain sentences under the title, the whole talk at a glance. */
+.keys { border: 1.5px solid var(--rule); border-left: 6px solid var(--blue); border-radius: 12px; background: var(--paper); padding: 14px 18px; display: grid; gap: 8px; }
+.keys .eyebrow { color: var(--blue); }
+.keys ul { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 6px; }
+.keys li { display: grid; grid-template-columns: 22px 1fr; gap: 6px; font-size: 1.02rem; max-width: 70ch; }
+.keys li::before { content: "\2713"; font-family: var(--font-hand); font-weight: 700; color: var(--green); }
+header.top { padding-bottom: 6px; }
+header.top h1 { letter-spacing: .005em; }
+.sh h2 { flex: 1; border-bottom: 1.5px dashed var(--rule); padding-bottom: 4px; }
+.panel, .opt, .tablewrap, .keys { box-shadow: 0 1px 0 rgba(0,0,0,.25), 0 6px 18px -12px rgba(0,0,0,.6); }
+.opt { transition: border-color .15s, box-shadow .15s; }
+.opt:not(.trial):hover { border-color: var(--muted); }
+.chip { transition: border-color .15s; }
+.chip:hover { border-color: var(--muted); }
+.note { line-height: 1.5; }
+footer ol { font-size: 12.5px; }
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  .board { gap: 32px; }
+  .panel, .opt { padding: 14px; }
+  .bar { font-size: 14px; gap: 6px 10px; }
+}
+
+/* Handout: compact, so the take-home copy is a few pages rather than many */
+@page { size: letter; margin: 0.45in 0.5in; }
+@media print {
+  body { font-size: 10pt; line-height: 1.4; }
+  h1 { font-size: 19pt; }
+  h2 { font-size: 14pt; }
+  h3 { font-size: 11.5pt; }
+  .lede { font-size: 10.5pt; }
+  .note, .opt .how, .chip small { font-size: 9pt; }
+  .board > * + * { margin-top: 14px; }
+  section.step > * + * { margin-top: 8px; }
+  .panel, .opt, .keys { padding: 9px 12px; border-radius: 8px; box-shadow: none; }
+  .tablewrap { box-shadow: none; border-radius: 8px; }
+  .opts, .opts.three { gap: 8px; }
+  .opt { gap: 4px; }
+  .opt ul { font-size: 9.5pt; gap: 2px; }
+  .two { gap: 14px; }
+  .n { width: 24px; height: 24px; font-size: 11pt; transform: translateY(2px); }
+  .sh { gap: 8px; }
+  .sh h2 { border-bottom-width: 1px; }
+  .facts { gap: 4px; }
+  .fact > span:first-child { font-size: 9.5pt; }
+  .diagram svg { max-height: 2.4in; }
+  #people { max-width: 2.3in; }
+  .arraywrap { grid-template-columns: minmax(0, 2.3in) minmax(0, 1fr); gap: 14px; }
+  .lg b { font-size: 16pt; }
+  .say { font-size: 11.5pt; padding-top: 6px; }
+  .compare { gap: 4px; }
+  .track { height: 10px; }
+  th, td { padding: 5px 8px; }
+  table { font-size: 9.5pt; }
+  thead th { font-size: 10pt; }
+  .checks { gap: 3px 14px; }
+  .checks input { width: 14px; height: 14px; margin-top: 2px; }
+  .checks label { grid-template-columns: 18px 1fr; }
+  textarea.lines { line-height: 24px; background-image: linear-gradient(transparent 23px, var(--rule) 24px); background-size: 100% 24px; min-height: 48px; font-size: 11pt; }
+  .plan, .panel.plan > * + * { gap: 8px; margin-top: 8px; }
+  .call { padding: 8px 12px; gap: 4px; }
+  .call ul { gap: 0; }
+  .keys li { font-size: 10.5pt; }
+  .keys ul { gap: 3px; }
+  footer { font-size: 8pt; padding-top: 8px; gap: 4px; }
+  footer ol { font-size: 7.5pt; column-count: 2; column-gap: 18px; display: block; }
+  footer ol li { break-inside: avoid; }
+  .chip { padding: 3px 10px; }
+  .tabs { display: none; }
+  .who { font-size: 10pt; }
+}
+@media print {
+  .panel.diffs, .panel.facts { break-inside: auto; }
+  .diff, .fact, .reading li { break-inside: avoid; }
+  .also, .next, .later2 { gap: 8px; }
+}
 /* kidney-clear-cell-first-line */
 /* Kidney cancer talk: IMDC risk inputs, IO + IO vs IO + TKI, best-response picture and three side-by-side differences */
 .mchips { display: inline-flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
@@ -333,13 +410,22 @@ body.blankprint .drow.sel > span:first-child { font-weight: inherit; }
       <label>Date <input class="fill wide" id="visitDate" style="width:8em" autocomplete="off"></label>
       <label>With <input class="fill wide" id="drName" placeholder="Dr." autocomplete="off"></label>
     </div>
+    <div class="keys">
+      <div class="eyebrow">The short version</div>
+      <ul>
+        <li>The cancer has spread. Treatment usually can't cure it, but it can keep it under control for years.</li>
+        <li>The first treatment is either two immunotherapy drugs (IO + IO) or immunotherapy plus a targeted pill (IO + TKI).</li>
+        <li>IO + TKI shrinks tumors in more people. IO + IO works in fewer people, but its benefit often lasts longer.</li>
+        <li>Both help people live longer. Side effects differ, and most are treatable if you tell us early.</li>
+      </ul>
+    </div>
   </header>
 
   <!-- 1 -->
   <section class="step" data-step="1" id="s1">
     <div class="sh"><span class="n">1</span><h2>What we found</h2></div>
-    <p class="lede">The cancer started in the kidney and has spread to other parts of the body. It is the <mark>clear cell</mark> type, the most common kind of kidney cancer.</p>
-    <p class="lede">Treatment usually can't cure it, but today's medicines can keep it under control for years, and for some people much longer. The goal is to help you <span class="hand">live longer and feel well</span>.</p>
+    <p class="lede">The cancer started in the kidney and has spread. It is the <mark>clear cell</mark> type, the most common kind.</p>
+    <p class="lede">Today's medicines can keep it under control for years, and for some people much longer. The goal is to help you <span class="hand">live longer and feel well</span>.</p>
     <div class="panel facts">
       <div class="eyebrow">Your cancer</div>
       <div class="factgrid">
@@ -360,7 +446,7 @@ body.blankprint .drow.sel > span:first-child { font-weight: inherit; }
         <span class="tag no" id="riskTag" data-live>Answer the six questions</span>
         <span class="blank-only">Favorable (0) &nbsp;/&nbsp; Intermediate (1–2) &nbsp;/&nbsp; Poor (3–6)</span>
       </div>
-      <p class="note">Count the “Yes” answers: none is favorable risk, 1 or 2 is intermediate, 3 or more is poor. The risk group describes how fast the cancer tends to grow, and the studies report results by it.</p>
+      <p class="note">Count the “Yes” answers: none is favorable, 1–2 intermediate, 3 or more poor. It describes how fast the cancer tends to grow; the studies report results by it.</p>
     </div>
   </section>
 
@@ -397,9 +483,9 @@ body.blankprint .drow.sel > span:first-child { font-weight: inherit; }
         </svg>
       </div>
       <div style="display:grid;gap:10px;min-width:0">
-        <p class="lede"><strong>Immunotherapy (IO)</strong> takes the brakes off your immune system so it can attack the cancer. <strong>Nivolumab</strong> (Opdivo) and <strong>pembrolizumab</strong> (Keytruda) release one brake, PD-1. <strong>Ipilimumab</strong> (Yervoy) releases a second brake, CTLA-4.</p>
-        <p class="lede"><strong>Targeted pills (TKIs)</strong> cut off the blood supply the cancer needs to grow: <strong>axitinib</strong> (Inlyta), <strong>cabozantinib</strong> (Cabometyx) and <strong>lenvatinib</strong> (Lenvima).</p>
-        <p class="note">Two immunotherapy drugs together is called <span class="hand">IO + IO</span>. One immunotherapy drug plus a targeted pill is called <span class="hand">IO + TKI</span>.</p>
+        <p class="lede"><strong>Immunotherapy (IO)</strong> takes the brakes off your immune system. <strong>Nivolumab</strong> (Opdivo) and <strong>pembrolizumab</strong> (Keytruda) release one brake, PD-1; <strong>ipilimumab</strong> (Yervoy) releases another, CTLA-4.</p>
+        <p class="lede"><strong>Targeted pills (TKIs)</strong> cut off the cancer's blood supply: <strong>axitinib</strong> (Inlyta), <strong>cabozantinib</strong> (Cabometyx), <strong>lenvatinib</strong> (Lenvima).</p>
+        <p class="note">Two immunotherapy drugs: <span class="hand">IO + IO</span>. Immunotherapy plus a targeted pill: <span class="hand">IO + TKI</span>.</p>
       </div>
     </div>
   </section>
@@ -408,10 +494,10 @@ body.blankprint .drow.sel > span:first-child { font-weight: inherit; }
   <section class="step" data-step="3" id="s3">
     <div class="sh"><span class="n">3</span><h2>Your choices</h2></div>
     <p class="note noprint">Tap a choice to see it in the picture below and in the table of schedules and side effects.</p>
-    <p class="lede">Both approaches help people live longer than the older pill, sunitinib, and both can shrink tumors a lot. They differ in how fast and how often they shrink the cancer, and in how long the benefit lasts.</p>
+    <p class="lede">Both help people live longer than the older pill, sunitinib. They differ in how often and how fast they shrink the cancer, and how long the benefit lasts.</p>
     <p class="verdict" id="verdict" data-live></p>
     <div class="opts" id="opts"></div>
-    <p class="note">For a few people whose cancer is small and growing slowly, careful watching with regular scans before starting treatment is also an option. Surgery or radiation to a single spot can sometimes help too.</p>
+    <p class="note">If the cancer is small and slow-growing, watching with regular scans before starting is also an option. Surgery or radiation to a single spot can sometimes help.</p>
   </section>
 
   <!-- 4 -->
@@ -425,8 +511,8 @@ body.blankprint .drow.sel > span:first-child { font-weight: inherit; }
       <div class="legend" style="min-width:0">
         <div class="lg cr"><b id="nCr">0</b><span><strong>cancer disappeared on scans.</strong></span></div>
         <div class="lg ben"><b id="nPr">0</b><span><strong>tumors shrank a lot</strong>, by about a third or more.</span></div>
-        <div class="lg sd"><b id="nSd">0</b><span>tumors stayed about the same size, which still counts as control. A few could not be measured.</span></div>
-        <div class="lg rec"><b id="nPd">0</b><span>cancer grew in spite of treatment, so it was changed.</span></div>
+        <div class="lg sd"><b id="nSd">0</b><span>tumors stayed about the same, which still counts as control (a few not measurable).</span></div>
+        <div class="lg rec"><b id="nPd">0</b><span>cancer grew despite treatment, so it was changed.</span></div>
         <p class="say" id="say"></p>
       </div>
     </div>
@@ -434,27 +520,27 @@ body.blankprint .drow.sel > span:first-child { font-weight: inherit; }
       <div class="eyebrow">How the two differ</div>
       <div class="diff">
         <h3>1. Shrinking the tumor quickly</h3>
-        <p class="why">IO + TKI shrinks tumors in more people, and fewer see their cancer grow at the first scans. This can matter if the cancer is causing symptoms or growing quickly.</p>
+        <p class="why">IO + TKI shrinks tumors in more people, and fewer see growth at the first scans. This matters if the cancer causes symptoms or grows quickly.</p>
         <div id="dShrink"></div>
       </div>
       <div class="diff">
         <h3>2. Long-lasting, deep responses</h3>
-        <p class="why">IO + IO shrinks tumors in fewer people, but when it works the benefit often lasts a very long time, sometimes many years. A small but real group stay well controlled long after treatment stops. How long the shrinking lasted, for half the people whose tumors shrank:</p>
+        <p class="why">IO + IO shrinks tumors in fewer people, but when it works the benefit often lasts many years, and some stay controlled long after treatment stops. How long shrinking lasted, for half of those whose tumors shrank:</p>
         <div id="dLast"></div>
       </div>
       <div class="diff">
         <h3>3. Living longer</h3>
-        <p class="why">Both help people live longer than the older pill. Across studies their survival is broadly similar, though they have never been compared head to head. Alive at 5 years:</p>
+        <p class="why">Survival is broadly similar across studies, though never compared head to head. Alive at 5 years:</p>
         <div id="dLive"></div>
-        <p class="note" id="dLiveNote" data-live hidden>For favorable risk, the studies have not yet shown that either approach helps people live longer than the older pill. These people tend to live a long time with any of the treatments.</p>
+        <p class="note" id="dLiveNote" data-live hidden>For favorable risk, neither approach has yet been shown to help people live longer than the older pill; people in this group tend to live a long time with any of them.</p>
       </div>
     </div>
     <div class="panel">
       <div class="eyebrow" style="margin-bottom:6px">Reading this picture</div>
       <ul class="reading" id="reading">
-        <li>No study has compared IO + IO with IO + TKI directly. Each was tested against sunitinib in its own study.</li>
-        <li>The IO + TKI numbers blend three studies, one for each pair. The pairs differ a little, mostly in side effects.</li>
-        <li>Results are for the risk group shown above. Fill in part 1 to match your risk group.</li>
+        <li>IO + IO and IO + TKI were never compared directly; each was tested against sunitinib.</li>
+        <li>IO + TKI numbers blend three studies, one per drug pair. The pairs differ a little, mostly in side effects.</li>
+        <li>Results are for the risk group shown above (fill in part 1).</li>
       </ul>
     </div>
     <div class="dr noprint" id="drPanel">
@@ -467,7 +553,7 @@ body.blankprint .drow.sel > span:first-child { font-weight: inherit; }
   <section class="step" data-step="5" id="s5">
     <div class="sh"><span class="n">5</span><h2>Schedule and side effects</h2></div>
     <div class="tablewrap"><table id="fx" class="narrow"></table></div>
-    <p class="note" id="fxNote">Numbers are people out of 100, at any level unless marked severe. There are no placebo studies here, so the older pill, sunitinib, is the comparison. IO + IO comes from CheckMate 214 and counts side effects judged to be from treatment. IO + TKI is the range across the three studies, some of which counted every side effect whatever the cause, so its numbers may read a little high. Immune side effects can affect any organ and can start months after the last dose. Most are treatable, often with steroids. Tell us early about any side effect: holding a dose or lowering the pill dose usually helps.</p>
+    <p class="note" id="fxNote">People out of 100, at any level unless marked severe. With no placebo studies, the older pill sunitinib is the comparison. IO + IO (CheckMate 214) counts side effects judged due to treatment; IO + TKI is the range across three studies, some counting every side effect whatever the cause, so it may read a little high. Immune side effects can affect any organ, even months after the last dose; most are treatable, often with steroids. Tell us early.</p>
   </section>
 
   <!-- 6 -->
@@ -490,9 +576,9 @@ body.blankprint .drow.sel > span:first-child { font-weight: inherit; }
   <section class="step" data-step="7" id="s7">
     <div class="sh"><span class="n">7</span><h2>Also part of your care</h2></div>
     <div class="also">
-      <div class="panel"><h3>Surgery or radiation</h3><p>If the kidney with the tumor is still in place, removing it can help some people. A few spots can sometimes be treated with surgery or focused radiation.</p></div>
-      <div class="panel"><h3>Blood tests and scans</h3><p>Regular blood tests check the thyroid, liver, kidneys and blood sugar for immune side effects. Scans every 2 to 3 months show how the treatment is working.</p></div>
-      <div class="panel"><h3>Blood pressure and your other doctors</h3><p>Targeted pills raise blood pressure, so check it at home. Tell every doctor you are on immunotherapy, because its side effects can look like other illnesses.</p></div>
+      <div class="panel"><h3>Surgery or radiation</h3><p>Removing the kidney with the tumor helps some people. A few spots can sometimes be treated with surgery or focused radiation.</p></div>
+      <div class="panel"><h3>Blood tests and scans</h3><p>Blood tests check thyroid, liver, kidneys and blood sugar. Scans every 2 to 3 months show how treatment is working.</p></div>
+      <div class="panel"><h3>Blood pressure and other doctors</h3><p>Targeted pills raise blood pressure, so check it at home. Tell every doctor you are on immunotherapy: its side effects can look like other illnesses.</p></div>
       <div class="panel"><h3>If the cancer grows later</h3><p>Other good options remain, including different targeted pills, belzutifan (Welireg) and clinical trials.</p></div>
     </div>
   </section>
@@ -541,7 +627,7 @@ First scans in:</textarea></label>
   </section>
 
   <footer>
-    <p>Numbers come from large studies of people with clear cell kidney cancer that had spread. They describe groups of people and cannot predict exactly what will happen to you. This sheet goes with your conversation with your care team and does not replace it.</p>
+    <p>Numbers come from large studies of clear cell kidney cancer that had spread. They describe groups of people, not exactly what will happen to you, and go with the conversation with your care team.</p>
     <ol id="refs">
       <li>Choueiri TK et al. Nivolumab plus ipilimumab vs sunitinib in advanced renal cell carcinoma (CheckMate 214): final analysis. Ann Oncol 2026;37:960. Tannir NM et al. 8-year follow-up. Ann Oncol 2024;35:1026.</li>
       <li>Regan MM et al. Treatment-free survival after nivolumab plus ipilimumab vs sunitinib (CheckMate 214). Clin Cancer Res 2021;27:6687.</li>

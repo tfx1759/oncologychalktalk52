@@ -247,3 +247,80 @@ body.blankprint .verdict, body.blankprint .tag, body.blankprint #ink { display: 
 body.blankprint .opt.trial.dim { opacity: 1; }
 body.blankprint .fill.num { width: 4em; }
 @media print { .fill::placeholder { color: transparent; } }
+/* ---------- Polish layer (oncologychalktalk52) ---------- */
+/* "The short version": three or four plain sentences under the title, the whole talk at a glance. */
+.keys { border: 1.5px solid var(--rule); border-left: 6px solid var(--blue); border-radius: 12px; background: var(--paper); padding: 14px 18px; display: grid; gap: 8px; }
+.keys .eyebrow { color: var(--blue); }
+.keys ul { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 6px; }
+.keys li { display: grid; grid-template-columns: 22px 1fr; gap: 6px; font-size: 1.02rem; max-width: 70ch; }
+.keys li::before { content: "\2713"; font-family: var(--font-hand); font-weight: 700; color: var(--green); }
+header.top { padding-bottom: 6px; }
+header.top h1 { letter-spacing: .005em; }
+.sh h2 { flex: 1; border-bottom: 1.5px dashed var(--rule); padding-bottom: 4px; }
+.panel, .opt, .tablewrap, .keys { box-shadow: 0 1px 0 rgba(0,0,0,.25), 0 6px 18px -12px rgba(0,0,0,.6); }
+.opt { transition: border-color .15s, box-shadow .15s; }
+.opt:not(.trial):hover { border-color: var(--muted); }
+.chip { transition: border-color .15s; }
+.chip:hover { border-color: var(--muted); }
+.note { line-height: 1.5; }
+footer ol { font-size: 12.5px; }
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  .board { gap: 32px; }
+  .panel, .opt { padding: 14px; }
+  .bar { font-size: 14px; gap: 6px 10px; }
+}
+
+/* Handout: compact, so the take-home copy is a few pages rather than many */
+@page { size: letter; margin: 0.45in 0.5in; }
+@media print {
+  body { font-size: 10pt; line-height: 1.4; }
+  h1 { font-size: 19pt; }
+  h2 { font-size: 14pt; }
+  h3 { font-size: 11.5pt; }
+  .lede { font-size: 10.5pt; }
+  .note, .opt .how, .chip small { font-size: 9pt; }
+  .board > * + * { margin-top: 14px; }
+  section.step > * + * { margin-top: 8px; }
+  .panel, .opt, .keys { padding: 9px 12px; border-radius: 8px; box-shadow: none; }
+  .tablewrap { box-shadow: none; border-radius: 8px; }
+  .opts, .opts.three { gap: 8px; }
+  .opt { gap: 4px; }
+  .opt ul { font-size: 9.5pt; gap: 2px; }
+  .two { gap: 14px; }
+  .n { width: 24px; height: 24px; font-size: 11pt; transform: translateY(2px); }
+  .sh { gap: 8px; }
+  .sh h2 { border-bottom-width: 1px; }
+  .facts { gap: 4px; }
+  .fact > span:first-child { font-size: 9.5pt; }
+  .diagram svg { max-height: 2.4in; }
+  #people { max-width: 2.3in; }
+  .arraywrap { grid-template-columns: minmax(0, 2.3in) minmax(0, 1fr); gap: 14px; }
+  .lg b { font-size: 16pt; }
+  .say { font-size: 11.5pt; padding-top: 6px; }
+  .compare { gap: 4px; }
+  .track { height: 10px; }
+  th, td { padding: 5px 8px; }
+  table { font-size: 9.5pt; }
+  thead th { font-size: 10pt; }
+  .checks { gap: 3px 14px; }
+  .checks input { width: 14px; height: 14px; margin-top: 2px; }
+  .checks label { grid-template-columns: 18px 1fr; }
+  textarea.lines { line-height: 24px; background-image: linear-gradient(transparent 23px, var(--rule) 24px); background-size: 100% 24px; min-height: 48px; font-size: 11pt; }
+  .plan, .panel.plan > * + * { gap: 8px; margin-top: 8px; }
+  .call { padding: 8px 12px; gap: 4px; }
+  .call ul { gap: 0; }
+  .keys li { font-size: 10.5pt; }
+  .keys ul { gap: 3px; }
+  footer { font-size: 8pt; padding-top: 8px; gap: 4px; }
+  footer ol { font-size: 7.5pt; column-count: 2; column-gap: 18px; display: block; }
+  footer ol li { break-inside: avoid; }
+  .chip { padding: 3px 10px; }
+  .tabs { display: none; }
+  .who { font-size: 10pt; }
+}
+@media print {
+  .panel.diffs, .panel.facts { break-inside: auto; }
+  .diff, .fact, .reading li { break-inside: avoid; }
+  .also, .next, .later2 { gap: 8px; }
+}

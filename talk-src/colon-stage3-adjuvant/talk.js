@@ -15,7 +15,7 @@
       how: 'Checkups, blood tests (CEA) and CT scans over 5 years',
       pros: ['No chemo side effects', 'Back to normal life soonest'],
       cons: ['Highest chance the cancer comes back'],
-      fit: 'People who are too frail for chemo, or who decide the benefit is not worth it to them' },
+      fit: 'Too frail for chemo, or the benefit isn’t worth it to you' },
     { id: 'cap', short: 'Pills alone', name: 'Capecitabine pills (or 5-FU), 6 months',
       how: 'Pills twice a day, 2 weeks on and 1 week off. No IV needed',
       pros: ['At home, no port or pump', 'No lasting nerve damage'],

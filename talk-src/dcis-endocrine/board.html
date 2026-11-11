@@ -6,6 +6,15 @@
       <label>Date <input class="fill wide" id="visitDate" style="width:8em" autocomplete="off"></label>
       <label>With <input class="fill wide" id="drName" placeholder="Dr." autocomplete="off"></label>
     </div>
+    <div class="keys">
+      <div class="eyebrow">The short version</div>
+      <ul>
+        <li>DCIS is stage 0: the cells stayed inside the milk ducts, and surgery removed them.</li>
+        <li>A hormone pill lowers the chance of another breast cancer later. It does not change survival, which is already excellent.</li>
+        <li>The pill only helps if your DCIS is estrogen receptor (ER) positive.</li>
+        <li>The choice is about avoiding treatment again, weighed against side effects.</li>
+      </ul>
+    </div>
   </header>
 
   <!-- 1 -->
@@ -31,8 +40,8 @@
         </svg>
       </div>
       <div style="display:grid;gap:12px;min-width:0">
-        <p class="lede">DCIS means abnormal cells were growing <strong>inside</strong> the milk ducts. They had not broken through the duct wall. That is why it is called <mark>stage 0</mark>.</p>
-        <p class="lede">While it stays inside the duct, DCIS can't spread to other parts of the body. Surgery removed it.</p>
+        <p class="lede">DCIS means abnormal cells were growing <strong>inside</strong> the milk ducts and had not broken through the wall: <mark>stage 0</mark>.</p>
+        <p class="lede">Inside the duct, DCIS can't spread to other parts of the body. Surgery removed it.</p>
         <p class="lede">The question now is how much to lower the chance of a <span class="hand">new breast cancer later</span>.</p>
       </div>
     </div>
@@ -54,7 +63,7 @@
         <span class="q">Chance of DCIS or cancer in the same breast within 10 years, without a hormone pill</span>
         <span><input class="fill num" id="ipsi" inputmode="decimal" aria-label="Ten-year chance in the same breast, percent"> % <a class="btn noprint" id="mskLink" href="https://nomograms.mskcc.org/breast/ductalcarcinomainsiturecurrencepage.aspx" target="_blank" rel="noopener noreferrer">MSK calculator ↗</a></span>
       </div>
-      <p class="note">From the Memorial Sloan Kettering DCIS calculator, using the details above with anti-estrogen set to “No”. It counts DCIS or invasive cancer in the treated breast, after a lumpectomy.</p>
+      <p class="note">From the Memorial Sloan Kettering DCIS calculator (anti-estrogen set to “No”): DCIS or invasive cancer in the treated breast after lumpectomy.</p>
     </div>
   </section>
 
@@ -64,17 +73,17 @@
     <div class="later2">
       <div class="panel">
         <h3>In the same breast</h3>
-        <p>DCIS can come back where it started. Roughly half the time it comes back as DCIS again, and half the time as invasive cancer.</p>
-        <p class="note">Radiation after lumpectomy lowers this chance by about half. The MSK calculator above estimates it for you.</p>
+        <p>DCIS can come back where it started: about half the time as DCIS, half as invasive cancer.</p>
+        <p class="note">Radiation after lumpectomy lowers this chance by about half.</p>
       </div>
       <div class="panel">
         <h3>In the other breast</h3>
-        <p>A new, separate cancer can start in the other breast. Over 10 years this happens to about 4 to 8 in 100 women after DCIS.</p>
+        <p>A new, separate cancer can start in the other breast: about 4 to 8 in 100 women over 10 years.</p>
       </div>
     </div>
     <div class="panel" style="display:grid;gap:10px">
-      <p class="lede">A hormone pill lowers the chance of both, most clearly in the other breast. It <strong>does not</strong> change survival, which is already excellent: about 97 in 100 women treated for DCIS do not die of breast cancer in the next 20 years, with or without a pill.</p>
-      <p class="lede">So this choice is about <span class="hand">lowering the chance of going through breast cancer treatment again</span>, weighed against side effects.</p>
+      <p class="lede">A hormone pill lowers the chance of both, most clearly in the other breast. It <strong>does not</strong> change survival, which is already excellent: about 97 in 100 women treated for DCIS do not die of breast cancer within 20 years.</p>
+      <p class="lede">So this choice is about <span class="hand">not going through breast cancer treatment again</span>, weighed against side effects.</p>
     </div>
   </section>
 
@@ -82,9 +91,9 @@
   <section class="step" data-step="3" id="s3">
     <div class="sh"><span class="n">3</span><h2>Your choices</h2></div>
     <p class="note noprint">Tap a choice to see it in the picture below and in the side-effect table.</p>
-    <div class="callout" id="erNeg" hidden><strong>Your DCIS is ER-negative.</strong><span>Hormone pills have not been shown to help when DCIS does not have estrogen receptors, so most women in this situation do not take one.</span></div>
+    <div class="callout" id="erNeg" hidden><strong>Your DCIS is ER-negative.</strong><span>Hormone pills have not been shown to help ER-negative DCIS, so most women in this situation do not take one.</span></div>
     <div class="opts" id="opts"></div>
-    <p class="note">If you had a mastectomy instead of a lumpectomy, the chance in the same breast is very low. A pill then mainly lowers the chance in the other breast.</p>
+    <p class="note">After a mastectomy, the chance in the same breast is very low, so a pill mainly protects the other breast.</p>
   </section>
 
   <!-- 4 -->
@@ -96,8 +105,8 @@
     <div class="panel arraywrap">
       <svg id="people" viewBox="0 0 340 340" role="img" aria-labelledby="peopleDesc"><desc id="peopleDesc"></desc></svg>
       <div class="legend" style="min-width:0">
-        <div class="lg free"><b id="nFree">0</b><span>no new breast cancer, even without a pill. They did not need it, but we can't know who they are.</span></div>
-        <div class="lg ben"><b id="nBen">0</b><span><strong>spared a new breast cancer by the pill.</strong> These are the women it helps.</span></div>
+        <div class="lg free"><b id="nFree">0</b><span>no new breast cancer, even without a pill. We can't tell in advance who they are.</span></div>
+        <div class="lg ben"><b id="nBen">0</b><span><strong>spared a new breast cancer by the pill.</strong></span></div>
         <div class="lg rec"><b id="nRec">0</b><span>have DCIS or cancer again, even with this choice.</span></div>
         <p class="say" id="say"></p>
       </div>
@@ -120,7 +129,7 @@
   <section class="step" data-step="5" id="s5">
     <div class="sh"><span class="n">5</span><h2>Schedule and side effects</h2></div>
     <div class="tablewrap"><table id="fx"></table></div>
-    <p class="note">“More in 100” is the added risk compared with women taking a placebo (a dummy pill) in large trials: NSABP B-24 and P-1 for tamoxifen, TAM-01 for low-dose tamoxifen, and IBIS-II for anastrozole. Many of these, like hot flashes and aches, are common on a placebo too. Most side effects ease after the first few months. If one pill doesn't suit you, switching often helps, so tell us rather than stopping.</p>
+    <p class="note">“More in 100” is the added risk over a placebo (dummy pill) in large trials: NSABP B-24 and P-1 (tamoxifen), TAM-01 (low dose), IBIS-II (anastrozole). Hot flashes and aches are common on placebo too. Most side effects ease after a few months, and switching pills often helps, so tell us rather than stopping.</p>
   </section>
 
   <!-- 6 -->
@@ -177,7 +186,7 @@ Next mammogram:</textarea></label>
   </section>
 
   <footer>
-    <p>Numbers are estimates for women treated for DCIS, drawn from large trials and the Memorial Sloan Kettering calculator, and adjusted by your doctor for your situation. They describe groups of people and cannot predict exactly what will happen to you. This sheet goes with your conversation with your care team and does not replace it.</p>
+    <p>Estimates for women treated for DCIS, from large trials and the Memorial Sloan Kettering calculator, adjusted by your doctor. They describe groups of people, not exactly what will happen to you, and go with the conversation with your care team.</p>
     <ol>
       <li>Rudloff U et al. Nomogram for predicting the risk of local recurrence after breast-conserving surgery for DCIS. J Clin Oncol 2010;28:3762.</li>
       <li>Fisher B et al. Tamoxifen after lumpectomy and radiation for DCIS (NSABP B-24). Lancet 1999;353:1993. Wapnir IL et al. J Natl Cancer Inst 2011;103:478. Allred DC et al. J Clin Oncol 2012;30:1268.</li>

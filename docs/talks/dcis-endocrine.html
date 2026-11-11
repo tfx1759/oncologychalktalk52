@@ -252,6 +252,83 @@ body.blankprint .verdict, body.blankprint .tag, body.blankprint #ink { display: 
 body.blankprint .opt.trial.dim { opacity: 1; }
 body.blankprint .fill.num { width: 4em; }
 @media print { .fill::placeholder { color: transparent; } }
+/* ---------- Polish layer (oncologychalktalk52) ---------- */
+/* "The short version": three or four plain sentences under the title, the whole talk at a glance. */
+.keys { border: 1.5px solid var(--rule); border-left: 6px solid var(--blue); border-radius: 12px; background: var(--paper); padding: 14px 18px; display: grid; gap: 8px; }
+.keys .eyebrow { color: var(--blue); }
+.keys ul { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 6px; }
+.keys li { display: grid; grid-template-columns: 22px 1fr; gap: 6px; font-size: 1.02rem; max-width: 70ch; }
+.keys li::before { content: "\2713"; font-family: var(--font-hand); font-weight: 700; color: var(--green); }
+header.top { padding-bottom: 6px; }
+header.top h1 { letter-spacing: .005em; }
+.sh h2 { flex: 1; border-bottom: 1.5px dashed var(--rule); padding-bottom: 4px; }
+.panel, .opt, .tablewrap, .keys { box-shadow: 0 1px 0 rgba(0,0,0,.25), 0 6px 18px -12px rgba(0,0,0,.6); }
+.opt { transition: border-color .15s, box-shadow .15s; }
+.opt:not(.trial):hover { border-color: var(--muted); }
+.chip { transition: border-color .15s; }
+.chip:hover { border-color: var(--muted); }
+.note { line-height: 1.5; }
+footer ol { font-size: 12.5px; }
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  .board { gap: 32px; }
+  .panel, .opt { padding: 14px; }
+  .bar { font-size: 14px; gap: 6px 10px; }
+}
+
+/* Handout: compact, so the take-home copy is a few pages rather than many */
+@page { size: letter; margin: 0.45in 0.5in; }
+@media print {
+  body { font-size: 10pt; line-height: 1.4; }
+  h1 { font-size: 19pt; }
+  h2 { font-size: 14pt; }
+  h3 { font-size: 11.5pt; }
+  .lede { font-size: 10.5pt; }
+  .note, .opt .how, .chip small { font-size: 9pt; }
+  .board > * + * { margin-top: 14px; }
+  section.step > * + * { margin-top: 8px; }
+  .panel, .opt, .keys { padding: 9px 12px; border-radius: 8px; box-shadow: none; }
+  .tablewrap { box-shadow: none; border-radius: 8px; }
+  .opts, .opts.three { gap: 8px; }
+  .opt { gap: 4px; }
+  .opt ul { font-size: 9.5pt; gap: 2px; }
+  .two { gap: 14px; }
+  .n { width: 24px; height: 24px; font-size: 11pt; transform: translateY(2px); }
+  .sh { gap: 8px; }
+  .sh h2 { border-bottom-width: 1px; }
+  .facts { gap: 4px; }
+  .fact > span:first-child { font-size: 9.5pt; }
+  .diagram svg { max-height: 2.4in; }
+  #people { max-width: 2.3in; }
+  .arraywrap { grid-template-columns: minmax(0, 2.3in) minmax(0, 1fr); gap: 14px; }
+  .lg b { font-size: 16pt; }
+  .say { font-size: 11.5pt; padding-top: 6px; }
+  .compare { gap: 4px; }
+  .track { height: 10px; }
+  th, td { padding: 5px 8px; }
+  table { font-size: 9.5pt; }
+  thead th { font-size: 10pt; }
+  .checks { gap: 3px 14px; }
+  .checks input { width: 14px; height: 14px; margin-top: 2px; }
+  .checks label { grid-template-columns: 18px 1fr; }
+  textarea.lines { line-height: 24px; background-image: linear-gradient(transparent 23px, var(--rule) 24px); background-size: 100% 24px; min-height: 48px; font-size: 11pt; }
+  .plan, .panel.plan > * + * { gap: 8px; margin-top: 8px; }
+  .call { padding: 8px 12px; gap: 4px; }
+  .call ul { gap: 0; }
+  .keys li { font-size: 10.5pt; }
+  .keys ul { gap: 3px; }
+  footer { font-size: 8pt; padding-top: 8px; gap: 4px; }
+  footer ol { font-size: 7.5pt; column-count: 2; column-gap: 18px; display: block; }
+  footer ol li { break-inside: avoid; }
+  .chip { padding: 3px 10px; }
+  .tabs { display: none; }
+  .who { font-size: 10pt; }
+}
+@media print {
+  .panel.diffs, .panel.facts { break-inside: auto; }
+  .diff, .fact, .reading li { break-inside: avoid; }
+  .also, .next, .later2 { gap: 8px; }
+}
 /* dcis-endocrine */
 /* DCIS talk: duct drawing, MSK calculator inputs, four pill choices */
 .mchips { display: inline-flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
@@ -320,6 +397,15 @@ body.blankprint .callout { display: none; }
       <label>Date <input class="fill wide" id="visitDate" style="width:8em" autocomplete="off"></label>
       <label>With <input class="fill wide" id="drName" placeholder="Dr." autocomplete="off"></label>
     </div>
+    <div class="keys">
+      <div class="eyebrow">The short version</div>
+      <ul>
+        <li>DCIS is stage 0: the cells stayed inside the milk ducts, and surgery removed them.</li>
+        <li>A hormone pill lowers the chance of another breast cancer later. It does not change survival, which is already excellent.</li>
+        <li>The pill only helps if your DCIS is estrogen receptor (ER) positive.</li>
+        <li>The choice is about avoiding treatment again, weighed against side effects.</li>
+      </ul>
+    </div>
   </header>
 
   <!-- 1 -->
@@ -345,8 +431,8 @@ body.blankprint .callout { display: none; }
         </svg>
       </div>
       <div style="display:grid;gap:12px;min-width:0">
-        <p class="lede">DCIS means abnormal cells were growing <strong>inside</strong> the milk ducts. They had not broken through the duct wall. That is why it is called <mark>stage 0</mark>.</p>
-        <p class="lede">While it stays inside the duct, DCIS can't spread to other parts of the body. Surgery removed it.</p>
+        <p class="lede">DCIS means abnormal cells were growing <strong>inside</strong> the milk ducts and had not broken through the wall: <mark>stage 0</mark>.</p>
+        <p class="lede">Inside the duct, DCIS can't spread to other parts of the body. Surgery removed it.</p>
         <p class="lede">The question now is how much to lower the chance of a <span class="hand">new breast cancer later</span>.</p>
       </div>
     </div>
@@ -368,7 +454,7 @@ body.blankprint .callout { display: none; }
         <span class="q">Chance of DCIS or cancer in the same breast within 10 years, without a hormone pill</span>
         <span><input class="fill num" id="ipsi" inputmode="decimal" aria-label="Ten-year chance in the same breast, percent"> % <a class="btn noprint" id="mskLink" href="https://nomograms.mskcc.org/breast/ductalcarcinomainsiturecurrencepage.aspx" target="_blank" rel="noopener noreferrer">MSK calculator ↗</a></span>
       </div>
-      <p class="note">From the Memorial Sloan Kettering DCIS calculator, using the details above with anti-estrogen set to “No”. It counts DCIS or invasive cancer in the treated breast, after a lumpectomy.</p>
+      <p class="note">From the Memorial Sloan Kettering DCIS calculator (anti-estrogen set to “No”): DCIS or invasive cancer in the treated breast after lumpectomy.</p>
     </div>
   </section>
 
@@ -378,17 +464,17 @@ body.blankprint .callout { display: none; }
     <div class="later2">
       <div class="panel">
         <h3>In the same breast</h3>
-        <p>DCIS can come back where it started. Roughly half the time it comes back as DCIS again, and half the time as invasive cancer.</p>
-        <p class="note">Radiation after lumpectomy lowers this chance by about half. The MSK calculator above estimates it for you.</p>
+        <p>DCIS can come back where it started: about half the time as DCIS, half as invasive cancer.</p>
+        <p class="note">Radiation after lumpectomy lowers this chance by about half.</p>
       </div>
       <div class="panel">
         <h3>In the other breast</h3>
-        <p>A new, separate cancer can start in the other breast. Over 10 years this happens to about 4 to 8 in 100 women after DCIS.</p>
+        <p>A new, separate cancer can start in the other breast: about 4 to 8 in 100 women over 10 years.</p>
       </div>
     </div>
     <div class="panel" style="display:grid;gap:10px">
-      <p class="lede">A hormone pill lowers the chance of both, most clearly in the other breast. It <strong>does not</strong> change survival, which is already excellent: about 97 in 100 women treated for DCIS do not die of breast cancer in the next 20 years, with or without a pill.</p>
-      <p class="lede">So this choice is about <span class="hand">lowering the chance of going through breast cancer treatment again</span>, weighed against side effects.</p>
+      <p class="lede">A hormone pill lowers the chance of both, most clearly in the other breast. It <strong>does not</strong> change survival, which is already excellent: about 97 in 100 women treated for DCIS do not die of breast cancer within 20 years.</p>
+      <p class="lede">So this choice is about <span class="hand">not going through breast cancer treatment again</span>, weighed against side effects.</p>
     </div>
   </section>
 
@@ -396,9 +482,9 @@ body.blankprint .callout { display: none; }
   <section class="step" data-step="3" id="s3">
     <div class="sh"><span class="n">3</span><h2>Your choices</h2></div>
     <p class="note noprint">Tap a choice to see it in the picture below and in the side-effect table.</p>
-    <div class="callout" id="erNeg" hidden><strong>Your DCIS is ER-negative.</strong><span>Hormone pills have not been shown to help when DCIS does not have estrogen receptors, so most women in this situation do not take one.</span></div>
+    <div class="callout" id="erNeg" hidden><strong>Your DCIS is ER-negative.</strong><span>Hormone pills have not been shown to help ER-negative DCIS, so most women in this situation do not take one.</span></div>
     <div class="opts" id="opts"></div>
-    <p class="note">If you had a mastectomy instead of a lumpectomy, the chance in the same breast is very low. A pill then mainly lowers the chance in the other breast.</p>
+    <p class="note">After a mastectomy, the chance in the same breast is very low, so a pill mainly protects the other breast.</p>
   </section>
 
   <!-- 4 -->
@@ -410,8 +496,8 @@ body.blankprint .callout { display: none; }
     <div class="panel arraywrap">
       <svg id="people" viewBox="0 0 340 340" role="img" aria-labelledby="peopleDesc"><desc id="peopleDesc"></desc></svg>
       <div class="legend" style="min-width:0">
-        <div class="lg free"><b id="nFree">0</b><span>no new breast cancer, even without a pill. They did not need it, but we can't know who they are.</span></div>
-        <div class="lg ben"><b id="nBen">0</b><span><strong>spared a new breast cancer by the pill.</strong> These are the women it helps.</span></div>
+        <div class="lg free"><b id="nFree">0</b><span>no new breast cancer, even without a pill. We can't tell in advance who they are.</span></div>
+        <div class="lg ben"><b id="nBen">0</b><span><strong>spared a new breast cancer by the pill.</strong></span></div>
         <div class="lg rec"><b id="nRec">0</b><span>have DCIS or cancer again, even with this choice.</span></div>
         <p class="say" id="say"></p>
       </div>
@@ -434,7 +520,7 @@ body.blankprint .callout { display: none; }
   <section class="step" data-step="5" id="s5">
     <div class="sh"><span class="n">5</span><h2>Schedule and side effects</h2></div>
     <div class="tablewrap"><table id="fx"></table></div>
-    <p class="note">“More in 100” is the added risk compared with women taking a placebo (a dummy pill) in large trials: NSABP B-24 and P-1 for tamoxifen, TAM-01 for low-dose tamoxifen, and IBIS-II for anastrozole. Many of these, like hot flashes and aches, are common on a placebo too. Most side effects ease after the first few months. If one pill doesn't suit you, switching often helps, so tell us rather than stopping.</p>
+    <p class="note">“More in 100” is the added risk over a placebo (dummy pill) in large trials: NSABP B-24 and P-1 (tamoxifen), TAM-01 (low dose), IBIS-II (anastrozole). Hot flashes and aches are common on placebo too. Most side effects ease after a few months, and switching pills often helps, so tell us rather than stopping.</p>
   </section>
 
   <!-- 6 -->
@@ -491,7 +577,7 @@ Next mammogram:</textarea></label>
   </section>
 
   <footer>
-    <p>Numbers are estimates for women treated for DCIS, drawn from large trials and the Memorial Sloan Kettering calculator, and adjusted by your doctor for your situation. They describe groups of people and cannot predict exactly what will happen to you. This sheet goes with your conversation with your care team and does not replace it.</p>
+    <p>Estimates for women treated for DCIS, from large trials and the Memorial Sloan Kettering calculator, adjusted by your doctor. They describe groups of people, not exactly what will happen to you, and go with the conversation with your care team.</p>
     <ol>
       <li>Rudloff U et al. Nomogram for predicting the risk of local recurrence after breast-conserving surgery for DCIS. J Clin Oncol 2010;28:3762.</li>
       <li>Fisher B et al. Tamoxifen after lumpectomy and radiation for DCIS (NSABP B-24). Lancet 1999;353:1993. Wapnir IL et al. J Natl Cancer Inst 2011;103:478. Allred DC et al. J Clin Oncol 2012;30:1268.</li>
@@ -534,7 +620,7 @@ Next mammogram:</textarea></label>
       how: 'Yearly mammograms and checkups',
       pros: ['No pill side effects', 'Survival is the same with or without a pill'],
       cons: ['Highest chance of another breast cancer'],
-      fit: 'ER-negative DCIS, a very low risk, or women who decide the benefit is not worth it to them' },
+      fit: 'ER-negative DCIS, very low risk, or the benefit isn’t worth it to you' },
     { id: 'tam', short: 'Tamoxifen', name: 'Tamoxifen 20 mg, 5 years',
       how: 'One pill a day. Works before and after menopause',
       pros: ['Lowers the chance of another breast cancer, most clearly in the other breast', 'The longest track record after DCIS'],

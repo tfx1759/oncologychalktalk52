@@ -252,6 +252,83 @@ body.blankprint .verdict, body.blankprint .tag, body.blankprint #ink { display: 
 body.blankprint .opt.trial.dim { opacity: 1; }
 body.blankprint .fill.num { width: 4em; }
 @media print { .fill::placeholder { color: transparent; } }
+/* ---------- Polish layer (oncologychalktalk52) ---------- */
+/* "The short version": three or four plain sentences under the title, the whole talk at a glance. */
+.keys { border: 1.5px solid var(--rule); border-left: 6px solid var(--blue); border-radius: 12px; background: var(--paper); padding: 14px 18px; display: grid; gap: 8px; }
+.keys .eyebrow { color: var(--blue); }
+.keys ul { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 6px; }
+.keys li { display: grid; grid-template-columns: 22px 1fr; gap: 6px; font-size: 1.02rem; max-width: 70ch; }
+.keys li::before { content: "\2713"; font-family: var(--font-hand); font-weight: 700; color: var(--green); }
+header.top { padding-bottom: 6px; }
+header.top h1 { letter-spacing: .005em; }
+.sh h2 { flex: 1; border-bottom: 1.5px dashed var(--rule); padding-bottom: 4px; }
+.panel, .opt, .tablewrap, .keys { box-shadow: 0 1px 0 rgba(0,0,0,.25), 0 6px 18px -12px rgba(0,0,0,.6); }
+.opt { transition: border-color .15s, box-shadow .15s; }
+.opt:not(.trial):hover { border-color: var(--muted); }
+.chip { transition: border-color .15s; }
+.chip:hover { border-color: var(--muted); }
+.note { line-height: 1.5; }
+footer ol { font-size: 12.5px; }
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  .board { gap: 32px; }
+  .panel, .opt { padding: 14px; }
+  .bar { font-size: 14px; gap: 6px 10px; }
+}
+
+/* Handout: compact, so the take-home copy is a few pages rather than many */
+@page { size: letter; margin: 0.45in 0.5in; }
+@media print {
+  body { font-size: 10pt; line-height: 1.4; }
+  h1 { font-size: 19pt; }
+  h2 { font-size: 14pt; }
+  h3 { font-size: 11.5pt; }
+  .lede { font-size: 10.5pt; }
+  .note, .opt .how, .chip small { font-size: 9pt; }
+  .board > * + * { margin-top: 14px; }
+  section.step > * + * { margin-top: 8px; }
+  .panel, .opt, .keys { padding: 9px 12px; border-radius: 8px; box-shadow: none; }
+  .tablewrap { box-shadow: none; border-radius: 8px; }
+  .opts, .opts.three { gap: 8px; }
+  .opt { gap: 4px; }
+  .opt ul { font-size: 9.5pt; gap: 2px; }
+  .two { gap: 14px; }
+  .n { width: 24px; height: 24px; font-size: 11pt; transform: translateY(2px); }
+  .sh { gap: 8px; }
+  .sh h2 { border-bottom-width: 1px; }
+  .facts { gap: 4px; }
+  .fact > span:first-child { font-size: 9.5pt; }
+  .diagram svg { max-height: 2.4in; }
+  #people { max-width: 2.3in; }
+  .arraywrap { grid-template-columns: minmax(0, 2.3in) minmax(0, 1fr); gap: 14px; }
+  .lg b { font-size: 16pt; }
+  .say { font-size: 11.5pt; padding-top: 6px; }
+  .compare { gap: 4px; }
+  .track { height: 10px; }
+  th, td { padding: 5px 8px; }
+  table { font-size: 9.5pt; }
+  thead th { font-size: 10pt; }
+  .checks { gap: 3px 14px; }
+  .checks input { width: 14px; height: 14px; margin-top: 2px; }
+  .checks label { grid-template-columns: 18px 1fr; }
+  textarea.lines { line-height: 24px; background-image: linear-gradient(transparent 23px, var(--rule) 24px); background-size: 100% 24px; min-height: 48px; font-size: 11pt; }
+  .plan, .panel.plan > * + * { gap: 8px; margin-top: 8px; }
+  .call { padding: 8px 12px; gap: 4px; }
+  .call ul { gap: 0; }
+  .keys li { font-size: 10.5pt; }
+  .keys ul { gap: 3px; }
+  footer { font-size: 8pt; padding-top: 8px; gap: 4px; }
+  footer ol { font-size: 7.5pt; column-count: 2; column-gap: 18px; display: block; }
+  footer ol li { break-inside: avoid; }
+  .chip { padding: 3px 10px; }
+  .tabs { display: none; }
+  .who { font-size: 10pt; }
+}
+@media print {
+  .panel.diffs, .panel.facts { break-inside: auto; }
+  .diff, .fact, .reading li { break-inside: avoid; }
+  .also, .next, .later2 { gap: 8px; }
+}
 /* lung-stage3a */
 /* Stage IIIA lung talk: two decision questions, chemoradiation vs surgery, 5-year survival picture and three side-by-side differences */
 .mchips { display: inline-flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
@@ -336,13 +413,22 @@ body.blankprint .drow.sel > span:first-child { font-weight: inherit; }
       <label>Date <input class="fill wide" id="visitDate" style="width:8em" autocomplete="off"></label>
       <label>With <input class="fill wide" id="drName" placeholder="Dr." autocomplete="off"></label>
     </div>
+    <div class="keys">
+      <div class="eyebrow">The short version</div>
+      <ul>
+        <li>Stage IIIA lung cancer has not spread to other parts of the body, so the goal is cure.</li>
+        <li>There are two paths: chemo with radiation then a year of immunotherapy, or chemo with immunotherapy then surgery.</li>
+        <li>Adding immunotherapy helped more people live longer in both paths.</li>
+        <li>Gene tests (EGFR, ALK) and the surgeon's view decide which path fits you.</li>
+      </ul>
+    </div>
   </header>
 
   <!-- 1 -->
   <section class="step" data-step="1" id="s1">
     <div class="sh"><span class="n">1</span><h2>What we found</h2></div>
-    <p class="lede">The cancer started in the lung. It is <mark>stage IIIA</mark>: it has reached lymph nodes in the chest or grown large, but scans show <strong>no spread to other parts of the body</strong>.</p>
-    <p class="lede">That matters: the goal of treatment is <span class="hand">cure</span>. Every approach combines several treatments, and immunotherapy now adds to the chance of cure.</p>
+    <p class="lede">The cancer started in the lung. It is <mark>stage IIIA</mark>: it has reached chest lymph nodes or grown large, but scans show <strong>no spread to other parts of the body</strong>.</p>
+    <p class="lede">So the goal is <span class="hand">cure</span>. Every approach combines several treatments, and immunotherapy adds to the chance of cure.</p>
     <div class="panel facts">
       <div class="eyebrow">Your cancer</div>
       <div class="factgrid">
@@ -361,7 +447,7 @@ body.blankprint .drow.sel > span:first-child { font-weight: inherit; }
         <span class="tag no" id="fitTag" data-live>Answer the two questions</span>
         <span class="blank-only">Both &nbsp;/&nbsp; Chemoradiation &nbsp;/&nbsp; Targeted pill &nbsp;/&nbsp; Waiting for tests</span>
       </div>
-      <p class="note">Immunotherapy works poorly, and can add side effects, when the cancer is driven by certain gene changes such as EGFR or ALK. Those cancers are treated with targeted pills instead. Whether surgery is possible is decided by a lung surgeon, often with a team review (tumor board), using scans, lymph node biopsies and breathing tests.</p>
+      <p class="note">Immunotherapy works poorly, and can add side effects, when gene changes such as EGFR or ALK drive the cancer; those are treated with targeted pills instead. A lung surgeon decides whether surgery is possible, often with a team review (tumor board), using scans, node biopsies and breathing tests.</p>
     </div>
   </section>
 
@@ -394,18 +480,18 @@ body.blankprint .drow.sel > span:first-child { font-weight: inherit; }
         <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="var(--ink)"/></marker></defs>
       </svg>
     </div>
-    <p class="lede"><strong>Immunotherapy</strong> takes a brake (PD-1 or PD-L1) off your immune system so it can find and attack cancer cells. <strong>Durvalumab</strong> (Imfinzi), <strong>pembrolizumab</strong> (Keytruda) and <strong>nivolumab</strong> (Opdivo) all work this way.</p>
-    <p class="note">In option B, giving treatment <span class="hand">before</span> surgery shrinks the cancer and lets us see how well it worked: in about 1 in 5 people, no living cancer is left when the surgeon removes it.</p>
+    <p class="lede"><strong>Immunotherapy</strong> takes a brake (PD-1 or PD-L1) off your immune system so it can attack cancer cells: <strong>durvalumab</strong> (Imfinzi), <strong>pembrolizumab</strong> (Keytruda), <strong>nivolumab</strong> (Opdivo).</p>
+    <p class="note">In option B, treatment <span class="hand">before</span> surgery shrinks the cancer and shows how well it worked: in about 1 in 5 people, no living cancer is left at surgery.</p>
   </section>
 
   <!-- 3 -->
   <section class="step" data-step="3" id="s3">
     <div class="sh"><span class="n">3</span><h2>Your choices</h2></div>
     <p class="note noprint">Tap a choice to see it in the picture below and in the table of schedules and side effects.</p>
-    <p class="lede">Both approaches aim for cure, and in each, adding immunotherapy helped more people live longer than the older treatment. They have <strong>never been compared with each other</strong> in a study.</p>
+    <p class="lede">Both aim for cure, and in each, adding immunotherapy helped more people live longer. They have <strong>never been compared with each other</strong>.</p>
     <p class="verdict" id="verdict" data-live></p>
     <div class="opts" id="opts"></div>
-    <p class="note">If a gene change such as EGFR or ALK is found, immunotherapy is usually left out. A targeted pill is added instead: osimertinib (Tagrisso) after chemoradiation or after surgery for EGFR, or alectinib (Alecensa) after surgery for ALK. If neither approach is safe, chemo and radiation can be given one after the other, or radiation alone.</p>
+    <p class="note">With an EGFR or ALK change, a targeted pill usually replaces immunotherapy: osimertinib (Tagrisso) after chemoradiation or surgery for EGFR, alectinib (Alecensa) after surgery for ALK. If neither approach is safe, chemo and radiation can be given one after the other, or radiation alone.</p>
   </section>
 
   <!-- 4 -->
@@ -444,9 +530,9 @@ body.blankprint .drow.sel > span:first-child { font-weight: inherit; }
     <div class="panel">
       <div class="eyebrow" style="margin-bottom:6px">Reading this picture</div>
       <ul class="reading">
-        <li><strong>Do not compare option A with option B directly.</strong> The studies enrolled different people. Option B studies included smaller, earlier cancers (stage II) and only people a surgeon judged could have surgery. Option A counted only people who had already finished chemoradiation without the cancer growing.</li>
-        <li>Option B blends two studies, CheckMate 816 and KEYNOTE-671. AEGEAN, a third study, gave similar early results but has not yet reported 5-year survival.</li>
-        <li>What the studies show is that adding immunotherapy helps in both approaches. Which approach suits you depends mostly on your surgeon's view and your health.</li>
+        <li><strong>Don't compare option A with option B directly.</strong> Option B studies included earlier (stage II) cancers and only people fit for surgery; option A counted only people who finished chemoradiation without the cancer growing.</li>
+        <li>Option B blends CheckMate 816 and KEYNOTE-671. AEGEAN gave similar early results but has no 5-year survival yet.</li>
+        <li>Immunotherapy helps in both. Which approach suits you depends mostly on your surgeon's view and your health.</li>
       </ul>
     </div>
     <div class="dr noprint" id="drPanel">
@@ -459,7 +545,7 @@ body.blankprint .drow.sel > span:first-child { font-weight: inherit; }
   <section class="step" data-step="5" id="s5">
     <div class="sh"><span class="n">5</span><h2>Schedule and side effects</h2></div>
     <div class="tablewrap"><table id="fx" class="narrow"></table></div>
-    <p class="note" id="fxNote">Rows marked “added by immunotherapy” compare immunotherapy with a placebo or with the same treatment without immunotherapy, so they show the extra risk on top of what chemo, radiation or surgery already cause. Option A comes from PACIFIC (durvalumab vs placebo after chemoradiation). Option B comes from KEYNOTE-671 and AEGEAN (immunotherapy vs placebo, both with the same chemo and surgery) and CheckMate 816 (vs chemo alone). Immune side effects can affect any organ and can start months after the last dose. Most are treatable, often with steroids. Tell us early about any side effect.</p>
+    <p class="note" id="fxNote">“Added by immunotherapy” is the extra risk over placebo or the same treatment without immunotherapy: PACIFIC for option A; KEYNOTE-671, AEGEAN and CheckMate 816 for option B. Immune side effects can affect any organ, even months after the last dose; most are treatable, often with steroids. Tell us early.</p>
   </section>
 
   <!-- 6 -->
@@ -482,10 +568,10 @@ body.blankprint .drow.sel > span:first-child { font-weight: inherit; }
   <section class="step" data-step="7" id="s7">
     <div class="sh"><span class="n">7</span><h2>Also part of your care</h2></div>
     <div class="also">
-      <div class="panel"><h3>Tests before we start</h3><p>A PET scan and brain MRI make sure the cancer has not spread. A biopsy of the chest lymph nodes (often by bronchoscopy) confirms the stage. Gene tests on the tumor (EGFR, ALK and others) and PD-L1 come back in 1 to 3 weeks.</p></div>
-      <div class="panel"><h3>A team decision</h3><p>A lung surgeon, a radiation doctor and your oncologist review your case together. Breathing tests and a heart check show whether surgery is safe.</p></div>
-      <div class="panel"><h3>Stopping smoking</h3><p>If you smoke, stopping now lowers the risk of problems after surgery and radiation and helps treatment work. We can help with medicines and counseling.</p></div>
-      <div class="panel"><h3>After treatment</h3><p>CT scans every few months for the first years watch for the cancer coming back. Staying active and breathing exercises help recovery.</p></div>
+      <div class="panel"><h3>Tests before we start</h3><p>PET scan and brain MRI to check for spread; a chest lymph node biopsy to confirm the stage. Gene tests (EGFR, ALK and others) and PD-L1 take 1 to 3 weeks.</p></div>
+      <div class="panel"><h3>A team decision</h3><p>A lung surgeon, radiation doctor and oncologist review your case. Breathing and heart tests show whether surgery is safe.</p></div>
+      <div class="panel"><h3>Stopping smoking</h3><p>Stopping now lowers the risk of problems after surgery and radiation. We can help with medicines and counseling.</p></div>
+      <div class="panel"><h3>After treatment</h3><p>CT scans every few months for the first years. Staying active and breathing exercises help recovery.</p></div>
     </div>
   </section>
 
@@ -535,7 +621,7 @@ Start date:</textarea></label>
   </section>
 
   <footer>
-    <p>Numbers come from large studies of people with stage II or III non-small cell lung cancer. They describe groups of people and cannot predict exactly what will happen to you. This sheet goes with your conversation with your care team and does not replace it.</p>
+    <p>Numbers come from large studies of stage II–III non-small cell lung cancer. They describe groups of people, not exactly what will happen to you, and go with the conversation with your care team.</p>
     <ol id="refs">
       <li>Antonia SJ et al. Durvalumab after chemoradiotherapy in stage III non-small-cell lung cancer (PACIFIC). N Engl J Med 2017;377:1919. Spigel DR et al. Five-year survival outcomes from PACIFIC. J Clin Oncol 2022;40:1301. Imfinzi US prescribing information.</li>
       <li>Forde PM et al. Neoadjuvant nivolumab plus chemotherapy in resectable lung cancer (CheckMate 816). N Engl J Med 2022;386:1973. Forde PM et al. Overall survival with neoadjuvant nivolumab plus chemotherapy. N Engl J Med 2025.</li>

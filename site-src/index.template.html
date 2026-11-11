@@ -48,6 +48,14 @@ header { display: grid; gap: 8px; }
 .btn.primary { background: var(--ink); color: var(--board); border-color: var(--ink); }
 :focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
 .empty { color: var(--muted); }
+.how { list-style: none; margin: 6px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 10px; counter-reset: h; }
+.how li { counter-increment: h; background: var(--paper); border: 1.5px solid var(--rule); border-radius: 10px; padding: 10px 14px 10px 48px; position: relative; font-size: 15.5px; color: var(--muted); }
+.how li::before { content: counter(h); position: absolute; left: 12px; top: 9px; width: 26px; height: 26px; border-radius: 50%; background: var(--ink); color: var(--board); font: 700 1.05rem/26px var(--font-hand); text-align: center; }
+.how b { color: var(--ink); }
+.talk { box-shadow: 0 6px 18px -12px rgba(0,0,0,.6); transition: border-color .15s; }
+.talk:hover { border-color: var(--muted); }
+.sec { font-family: var(--font-hand); font-size: 1.5rem; margin: 8px 0 -6px; grid-column: 1 / -1; color: var(--blue); }
+.sec[hidden] { display: none; }
 footer { color: var(--muted); font-size: 14px; border-top: 1px solid var(--rule); padding-top: 14px; display: grid; gap: 6px; }
 </style>
 </head>
@@ -56,7 +64,12 @@ footer { color: var(--muted); font-size: 14px; border-top: 1px solid var(--rule)
   <header>
     <div class="eyebrow">Medical oncology</div>
     <h1>Chalk Talks</h1>
-    <p class="lede">Visual treatment conversations to walk through in the visit and send home as a handout.</p>
+    <p class="lede">Short, visual treatment conversations for people newly diagnosed with cancer. Walk through one together in the visit, then take it home as a handout.</p>
+    <ol class="how">
+      <li><b>Open</b> the talk that fits the decision.</li>
+      <li><b>Fill in</b> the details and mark it up together, step by step.</li>
+      <li><b>Print</b> the filled copy to take home, or a blank one to write on.</li>
+    </ol>
   </header>
   <div class="find">
     <input id="q" type="search" placeholder="Search talks: cancer type, drug, trial, side effect…" aria-label="Find a talk" autocomplete="off">
@@ -76,11 +89,13 @@ footer { color: var(--muted); font-size: 14px; border-top: 1px solid var(--rule)
   // Lowercase, drop accents and punctuation, so "CDK4/6", "cdk 4 6" and "Kisqali®" all match.
   const norm = t => t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
   const q = document.getElementById('q'), cards = [...document.querySelectorAll('.talk')];
+  const secs = [...document.querySelectorAll('.sec')];
   cards.forEach(c => { c._find = ' ' + norm(c.dataset.find) + ' '; });
   function filter() {
     const words = norm(q.value).split(' ').filter(Boolean);
     let n = 0;
     cards.forEach(c => { const hit = words.every(w => c._find.includes(' ' + w)); c.hidden = !hit; if (hit) n++; });
+    secs.forEach(h => { let n2 = 0, el = h.nextElementSibling; while (el && !el.classList.contains('sec')) { if (!el.hidden) n2++; el = el.nextElementSibling; } h.hidden = !n2; });
     document.getElementById('count').textContent = n + (n === 1 ? ' talk' : ' talks');
     document.getElementById('empty').hidden = n > 0;
   }

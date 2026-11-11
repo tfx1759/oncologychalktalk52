@@ -48,8 +48,11 @@ def main(OUT=OUT):
     if OUT.exists():
         shutil.rmtree(OUT)
     (OUT / "talks").mkdir(parents=True)
-    cards = []
-    for t in talks:
+    cards, group = [], None
+    for t in sorted(talks, key=lambda t: t["topic"].split(" · ")[0]):
+        g = t["topic"].split(" · ")[0]
+        if g != group:
+            cards.append(f'    <h2 class="sec">{html.escape(g)}</h2>'); group = g
         body = (ROOT / t["source"]).read_text()
         (OUT / "talks" / f'{t["slug"]}.html').write_text(SKELETON + body + "\n</body></html>\n")
         cards.append(card(t, body))

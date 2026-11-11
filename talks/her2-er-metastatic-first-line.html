@@ -251,6 +251,83 @@ body.blankprint .verdict, body.blankprint .tag, body.blankprint #ink { display: 
 body.blankprint .opt.trial.dim { opacity: 1; }
 body.blankprint .fill.num { width: 4em; }
 @media print { .fill::placeholder { color: transparent; } }
+/* ---------- Polish layer (oncologychalktalk52) ---------- */
+/* "The short version": three or four plain sentences under the title, the whole talk at a glance. */
+.keys { border: 1.5px solid var(--rule); border-left: 6px solid var(--blue); border-radius: 12px; background: var(--paper); padding: 14px 18px; display: grid; gap: 8px; }
+.keys .eyebrow { color: var(--blue); }
+.keys ul { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 6px; }
+.keys li { display: grid; grid-template-columns: 22px 1fr; gap: 6px; font-size: 1.02rem; max-width: 70ch; }
+.keys li::before { content: "\2713"; font-family: var(--font-hand); font-weight: 700; color: var(--green); }
+header.top { padding-bottom: 6px; }
+header.top h1 { letter-spacing: .005em; }
+.sh h2 { flex: 1; border-bottom: 1.5px dashed var(--rule); padding-bottom: 4px; }
+.panel, .opt, .tablewrap, .keys { box-shadow: 0 1px 0 rgba(0,0,0,.25), 0 6px 18px -12px rgba(0,0,0,.6); }
+.opt { transition: border-color .15s, box-shadow .15s; }
+.opt:not(.trial):hover { border-color: var(--muted); }
+.chip { transition: border-color .15s; }
+.chip:hover { border-color: var(--muted); }
+.note { line-height: 1.5; }
+footer ol { font-size: 12.5px; }
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  .board { gap: 32px; }
+  .panel, .opt { padding: 14px; }
+  .bar { font-size: 14px; gap: 6px 10px; }
+}
+
+/* Handout: compact, so the take-home copy is a few pages rather than many */
+@page { size: letter; margin: 0.45in 0.5in; }
+@media print {
+  body { font-size: 10pt; line-height: 1.4; }
+  h1 { font-size: 19pt; }
+  h2 { font-size: 14pt; }
+  h3 { font-size: 11.5pt; }
+  .lede { font-size: 10.5pt; }
+  .note, .opt .how, .chip small { font-size: 9pt; }
+  .board > * + * { margin-top: 14px; }
+  section.step > * + * { margin-top: 8px; }
+  .panel, .opt, .keys { padding: 9px 12px; border-radius: 8px; box-shadow: none; }
+  .tablewrap { box-shadow: none; border-radius: 8px; }
+  .opts, .opts.three { gap: 8px; }
+  .opt { gap: 4px; }
+  .opt ul { font-size: 9.5pt; gap: 2px; }
+  .two { gap: 14px; }
+  .n { width: 24px; height: 24px; font-size: 11pt; transform: translateY(2px); }
+  .sh { gap: 8px; }
+  .sh h2 { border-bottom-width: 1px; }
+  .facts { gap: 4px; }
+  .fact > span:first-child { font-size: 9.5pt; }
+  .diagram svg { max-height: 2.4in; }
+  #people { max-width: 2.3in; }
+  .arraywrap { grid-template-columns: minmax(0, 2.3in) minmax(0, 1fr); gap: 14px; }
+  .lg b { font-size: 16pt; }
+  .say { font-size: 11.5pt; padding-top: 6px; }
+  .compare { gap: 4px; }
+  .track { height: 10px; }
+  th, td { padding: 5px 8px; }
+  table { font-size: 9.5pt; }
+  thead th { font-size: 10pt; }
+  .checks { gap: 3px 14px; }
+  .checks input { width: 14px; height: 14px; margin-top: 2px; }
+  .checks label { grid-template-columns: 18px 1fr; }
+  textarea.lines { line-height: 24px; background-image: linear-gradient(transparent 23px, var(--rule) 24px); background-size: 100% 24px; min-height: 48px; font-size: 11pt; }
+  .plan, .panel.plan > * + * { gap: 8px; margin-top: 8px; }
+  .call { padding: 8px 12px; gap: 4px; }
+  .call ul { gap: 0; }
+  .keys li { font-size: 10.5pt; }
+  .keys ul { gap: 3px; }
+  footer { font-size: 8pt; padding-top: 8px; gap: 4px; }
+  footer ol { font-size: 7.5pt; column-count: 2; column-gap: 18px; display: block; }
+  footer ol li { break-inside: avoid; }
+  .chip { padding: 3px 10px; }
+  .tabs { display: none; }
+  .who { font-size: 10pt; }
+}
+@media print {
+  .panel.diffs, .panel.facts { break-inside: auto; }
+  .diff, .fact, .reading li { break-inside: avoid; }
+  .also, .next, .later2 { gap: 8px; }
+}
 /* her2-er-metastatic-first-line */
 /* Triple-positive talk: three first-line plans and a months timeline */
 .mchips { display: inline-flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
@@ -340,6 +417,15 @@ body.blankprint .tl:not(.ref) .seg.pfs { background: var(--blue); }
       <label>Date <input class="fill wide" id="visitDate" style="width:8em" autocomplete="off"></label>
       <label>With <input class="fill wide" id="drName" placeholder="Dr." autocomplete="off"></label>
     </div>
+    <div class="keys">
+      <div class="eyebrow">The short version</div>
+      <ul>
+        <li>The cancer has spread, so the goal is to control it for as long as possible while you feel well.</li>
+        <li>It has two targets, HER2 and estrogen, and the first treatment aims at both.</li>
+        <li>There are three good first plans. The two newer ones kept the cancer controlled longer, with different side effects.</li>
+        <li>Most people have several treatments over time, so choosing the first is partly choosing the order.</li>
+      </ul>
+    </div>
   </header>
 
   <!-- 1 -->
@@ -356,9 +442,9 @@ body.blankprint .tl:not(.ref) .seg.pfs { background: var(--blue); }
         <div class="fact"><span>Menopause</span><span class="mchips" id="menoChips"><button class="chip" data-v="pre" aria-pressed="false">Not yet</button><button class="chip" data-v="post" aria-pressed="false">Past menopause</button></span></div>
       </div>
       <div style="display:grid;gap:12px;min-width:0">
-        <p class="lede">The cancer has spread beyond the breast. It has <mark>two drivers</mark> we can target: <strong>HER2</strong>, an accelerator, and <strong>estrogen</strong>, a fuel. That is why it is called triple-positive.</p>
-        <p class="lede">Cancer that has spread usually can't be cured. It can often be <span class="hand">controlled for years</span>. The goal is to keep it under control as long as possible while you feel as well as possible.</p>
-        <p class="note">In the study that set today's standard, CLEOPATRA, about 37 in 100 people were still alive 8 years later. Treatments have improved since then.</p>
+        <p class="lede">The cancer has spread beyond the breast. It has <mark>two drivers</mark> we can target: <strong>HER2</strong>, an accelerator, and <strong>estrogen</strong>, a fuel.</p>
+        <p class="lede">Cancer that has spread usually can't be cured, but it can often be <span class="hand">controlled for years</span>.</p>
+        <p class="note">In CLEOPATRA, the study behind today's standard, about 37 in 100 people were alive 8 years later. Treatments have improved since.</p>
       </div>
     </div>
   </section>
@@ -398,9 +484,9 @@ body.blankprint .tl:not(.ref) .seg.pfs { background: var(--blue); }
         </svg>
       </div>
       <div style="display:grid;gap:10px;min-width:0">
-        <p class="lede"><strong>Trastuzumab</strong> (Herceptin) and <strong>pertuzumab</strong> (Perjeta) are antibodies that block HER2 from two sides. Together they are called <span class="hand">HP</span>. They can be given in a vein or as one shot under the skin (Phesgo).</p>
-        <p class="lede"><strong>Taxane chemo</strong> (docetaxel or paclitaxel) shrinks the cancer quickly. With HP it is called <span class="hand">THP</span>.</p>
-        <p class="lede"><strong>T-DXd</strong> (trastuzumab deruxtecan, Enhertu) is trastuzumab with chemo attached. It carries the chemo straight into HER2 cells.</p>
+        <p class="lede"><strong>Trastuzumab</strong> (Herceptin) and <strong>pertuzumab</strong> (Perjeta), together <span class="hand">HP</span>, block HER2 from two sides. Given in a vein or as one shot under the skin (Phesgo).</p>
+        <p class="lede"><strong>Taxane chemo</strong> (docetaxel or paclitaxel) shrinks the cancer quickly. With HP it is <span class="hand">THP</span>.</p>
+        <p class="lede"><strong>T-DXd</strong> (trastuzumab deruxtecan, Enhertu) is trastuzumab with chemo attached, carried straight into HER2 cells.</p>
         <p class="lede">An <strong>aromatase inhibitor</strong> (letrozole, anastrozole or exemestane) lowers estrogen. <strong>Palbociclib</strong> (Ibrance) is a pill that slows cell division.</p>
       </div>
     </div>
@@ -417,7 +503,7 @@ body.blankprint .tl:not(.ref) .seg.pfs { background: var(--blue); }
   <!-- 4 -->
   <section class="step" data-step="4" id="s4">
     <div class="sh"><span class="n">4</span><h2>How long the cancer stayed under control</h2></div>
-    <p class="note">Each bar ends at the point where half the people in the study had their cancer start growing again. The other half were still under control, many for much longer.</p>
+    <p class="note">Each bar ends when half the people in the study had their cancer start growing again. The other half stayed under control, many for much longer.</p>
     <div class="tabs" id="tabs"></div>
     <div class="panel timeline" id="timeline" aria-label="Months until the cancer grew in each study">
       <div class="tlkey"><span><i style="background:var(--blue)"></i>Cancer under control (half the people)</span><span><i style="background:repeating-linear-gradient(135deg, var(--muted) 0 2px, transparent 2px 6px);border:1.5px solid var(--muted)"></i>Chemo before PATINA started counting</span></div>
@@ -426,10 +512,10 @@ body.blankprint .tl:not(.ref) .seg.pfs { background: var(--blue); }
     <div class="panel">
       <div class="eyebrow" style="margin-bottom:6px">Reading this chart</div>
       <ul class="reading">
-        <li>No study has compared all three plans with each other. Each pair of bars comes from its own study.</li>
-        <li>PATINA started counting <strong>after</strong> 4 to 8 doses of chemo (about 3 to 6 months), and only for people whose cancer was controlled by the chemo. DESTINY-Breast09 started counting on the first day of treatment. So the PATINA bars sit later and can't be lined up exactly with the others.</li>
-        <li>The DESTINY-Breast09 bars show the people whose cancer was ER-positive, like yours.</li>
-        <li>We don't know yet whether either newer plan helps people live longer. Those results are still being collected.</li>
+        <li>No study compared all three plans. Each pair of bars comes from its own study.</li>
+        <li>PATINA started counting <strong>after</strong> 3 to 6 months of chemo, and only in people whose cancer the chemo controlled. DESTINY-Breast09 started on day one, so the bars can't be lined up exactly.</li>
+        <li>The DESTINY-Breast09 bars are for ER-positive cancers, like yours.</li>
+        <li>We don't know yet whether either newer plan helps people live longer.</li>
       </ul>
     </div>
     <div class="dr noprint" id="drPanel">
@@ -442,7 +528,7 @@ body.blankprint .tl:not(.ref) .seg.pfs { background: var(--blue); }
   <section class="step" data-step="5" id="s5">
     <div class="sh"><span class="n">5</span><h2>Schedule and side effects</h2></div>
     <div class="tablewrap"><table id="fx" class="narrow"></table></div>
-    <p class="note">Numbers are how many people out of 100 had each side effect, at any level, in DESTINY-Breast09 (T-DXd + pertuzumab or THP) and in PATINA after chemo (with or without palbociclib). Most were mild to moderate. Tell us early about any side effect: a lower dose or a break usually helps.</p>
+    <p class="note">People out of 100 with each side effect, at any level, in DESTINY-Breast09 and in PATINA after chemo. Most were mild to moderate. Tell us early: a lower dose or a break usually helps.</p>
   </section>
 
   <!-- 6 -->
@@ -451,15 +537,15 @@ body.blankprint .tl:not(.ref) .seg.pfs { background: var(--blue); }
     <div class="next">
       <div class="panel">
         <h3>After chemo + HP</h3>
-        <p>T-DXd is usually next. In DESTINY-Breast03, given after trastuzumab and a taxane, it kept the cancer under control for a median of about 29 months, versus about 7 months with the older drug T-DM1.</p>
+        <p>T-DXd is usually next. In DESTINY-Breast03 it kept the cancer under control for a median of about 29 months, versus about 7 months with the older drug T-DM1.</p>
       </div>
       <div class="panel">
         <h3>After T-DXd + pertuzumab</h3>
         <p>Good options remain, such as tucatinib with trastuzumab and capecitabine, T-DM1, or chemo with HP. How well they work after T-DXd is still being studied.</p>
-        <p class="note">Early results from DESTINY-Breast09 show the cancer also stayed under control longer through the next treatment when T-DXd + pertuzumab came first.</p>
+        <p class="note">Early results suggest control also lasted longer through the next treatment when T-DXd + pertuzumab came first.</p>
       </div>
     </div>
-    <p class="note">Most people with this cancer go on to have several lines of treatment. Choosing the first one is partly choosing the order.</p>
+
   </section>
 
   <!-- 7 -->
@@ -519,7 +605,7 @@ Scans to see how it is working, every:     months</textarea></label>
   </section>
 
   <footer>
-    <p>Numbers come from large studies of people with HER2-positive breast cancer that had spread, and describe groups of people. They cannot predict exactly what will happen to you. This sheet goes with your conversation with your care team and does not replace it.</p>
+    <p>Numbers come from large studies of HER2-positive breast cancer that had spread. They describe groups of people, not exactly what will happen to you, and go with the conversation with your care team.</p>
     <ol>
       <li>Swain SM et al. Pertuzumab, trastuzumab and docetaxel for HER2-positive metastatic breast cancer (CLEOPATRA): end-of-study results. Lancet Oncol 2020;21:519.</li>
       <li>Metzger O et al. Palbociclib for hormone-receptor–positive, HER2-positive advanced breast cancer (PATINA). N Engl J Med 2026;394:451.</li>

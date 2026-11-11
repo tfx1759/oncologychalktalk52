@@ -20,7 +20,7 @@
       how: 'Yearly mammograms and checkups',
       pros: ['No pill side effects', 'Survival is the same with or without a pill'],
       cons: ['Highest chance of another breast cancer'],
-      fit: 'ER-negative DCIS, a very low risk, or women who decide the benefit is not worth it to them' },
+      fit: 'ER-negative DCIS, very low risk, or the benefit isn’t worth it to you' },
     { id: 'tam', short: 'Tamoxifen', name: 'Tamoxifen 20 mg, 5 years',
       how: 'One pill a day. Works before and after menopause',
       pros: ['Lowers the chance of another breast cancer, most clearly in the other breast', 'The longest track record after DCIS'],

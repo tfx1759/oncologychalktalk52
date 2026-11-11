@@ -22,7 +22,7 @@
       "stage III",
       "colon cancer"
     ],
-    "updated": "2026-10-04"
+    "updated": "2026-11-11"
   },
   {
     "slug": "breast-er-endocrine",
@@ -58,7 +58,7 @@
       "SERD",
       "oral SERD"
     ],
-    "updated": "2026-11-10"
+    "updated": "2026-11-11"
   },
   {
     "slug": "dcis-endocrine",
@@ -94,7 +94,7 @@
       "uterine cancer",
       "breast cancer"
     ],
-    "updated": "2026-10-04"
+    "updated": "2026-11-11"
   },
   {
     "slug": "her2-er-metastatic-first-line",
@@ -137,7 +137,7 @@
       "neuropathy",
       "breast cancer"
     ],
-    "updated": "2026-10-04"
+    "updated": "2026-11-11"
   },
   {
     "slug": "prostate-metastatic-first-line",
@@ -193,7 +193,7 @@
       "PSA",
       "Gleason"
     ],
-    "updated": "2026-10-04"
+    "updated": "2026-11-11"
   },
   {
     "slug": "kidney-clear-cell-first-line",
@@ -243,7 +243,7 @@
       "nephrectomy",
       "belzutifan"
     ],
-    "updated": "2026-10-04"
+    "updated": "2026-11-11"
   },
   {
     "slug": "lung-stage3a",
@@ -303,6 +303,6 @@
       "thyroid",
       "tumor board"
     ],
-    "updated": "2026-10-05"
+    "updated": "2026-11-11"
   }
 ]
