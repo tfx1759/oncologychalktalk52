@@ -26,7 +26,7 @@
       pros: ['Most of the benefit of 6 months', 'Far less lasting numbness', 'Done in 3 months'],
       cons: ['Some numbness and cold sensitivity', 'In the higher-risk group, slightly less benefit than 6 months'],
       fit: 'The usual choice for the lower-risk group' },
-    { id: 'ox6', short: 'Oxaliplatin 6 mo', name: 'FOLFOX or CAPOX, 6 months',
+    { id: 'ox6', short: 'FOLFOX/CAPEOX 6 months', name: 'FOLFOX or CAPOX, 6 months',
       how: 'FOLFOX: IV every 2 weeks with a 2-day home pump (12 doses). CAPOX: IV every 3 weeks plus pills (8 doses)',
       pros: ['Largest benefit, especially for the higher-risk group'],
       cons: ['About half have numbness that gets in the way of daily tasks', 'Longest course, most visits'],
@@ -125,7 +125,7 @@
     const opt = OPTIONS.find(x => x.id === S.sel);
     $('#say').textContent = S.sel === 'none'
       ? `Without chemo, about ${o.rec} out of 100 people like you would have the cancer come back.`
-      : `With ${opt.short.replace(' mo', ' months')}, about ${o.ben} more people out of 100 stay cancer-free than with surgery alone.`;
+      : `With ${opt.short.replace(/ mo$/, ' months')}, about ${o.ben} more people out of 100 stay cancer-free than with surgery alone.`;
     $('#peopleDesc').textContent = `${o.free} cancer-free with surgery alone, ${o.ben} cancer-free because of chemo, ${o.rec} with cancer returning.`;
 
     OPTIONS.forEach(x => {
